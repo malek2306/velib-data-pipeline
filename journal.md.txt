@@ -1,0 +1,2 @@
+## Jour 1 (05/10/2026)
+Installé PostgreSQL, DBeaver, Python et Git, créé le dépôt, choisi les données Vélib'.
