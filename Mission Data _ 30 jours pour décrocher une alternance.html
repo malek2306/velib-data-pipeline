@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<!-- saved from url=(0158)file:///C:/Users/user/Documents/projet%20DATA%2005.10.2026/velib-data-pipeline/Mission%20Data%20_%2030%20jours%20pour%20d%C3%A9crocher%20une%20alternance.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mission Data : 30 jours pour décrocher une alternance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Mission Data _ 30 jours pour décrocher une alternance_files/css2" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF2EF; --card:#FFFFFF; --ink:#1D2B36; --soft:#5A6B76; --line:#CBD6D1;
+  --flow:#0E8C8C; --flow-soft:#D3ECEA; --lit:#F2B33D; --lit-soft:#FCEFD2; --spark:#E4572E;
+  --code-bg:#1D2B36; --code-ink:#E8F1EE;
+  --display:'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --body:'Atkinson Hyperlegible', 'Segoe UI', system-ui, sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141D23; --card:#1C2830; --ink:#E6EEEA; --soft:#9DB0AA; --line:#2E3E47;
+    --flow:#3FC1BC; --flow-soft:#173836; --lit:#F5C25A; --lit-soft:#3A3020; --spark:#FF7A55;
+    --code-bg:#0E151A; --code-ink:#E8F1EE;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141D23; --card:#1C2830; --ink:#E6EEEA; --soft:#9DB0AA; --line:#2E3E47;
+  --flow:#3FC1BC; --flow-soft:#173836; --lit:#F5C25A; --lit-soft:#3A3020; --spark:#FF7A55;
+  --code-bg:#0E151A; --code-ink:#E8F1EE;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:var(--flow);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--lit);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.narrow{max-width:68ch}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:16px;height:56px}
+.bar strong{font-family:var(--display);font-weight:800;font-size:18px;white-space:nowrap}
+.bar nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{color:var(--ink);text-decoration:none;font-size:15px;padding:6px 10px;border-radius:8px;white-space:nowrap}
+.bar nav a:hover{background:var(--flow-soft)}
+.meter{height:4px;background:var(--line)}
+.meter i{display:block;height:100%;width:0;background:var(--lit);transition:width .5s ease}
+
+/* ---------- hero ---------- */
+.hero{padding:48px 0 24px}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,6vw,64px);line-height:1.02;letter-spacing:-.02em;margin:0 0 14px;max-width:15ch}
+.hero p.lead{font-size:clamp(18px,2.2vw,21px);color:var(--soft);margin:0 0 28px;max-width:56ch}
+.pipe-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 18px 14px}
+.pipe-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 6px 8px}
+.pipe-head b{font-family:var(--display);font-size:20px}
+.daycount{font-family:var(--display);font-weight:800;font-size:28px;color:var(--flow)}
+.daycount small{font-size:15px;color:var(--soft);font-weight:600}
+.pipe-scroll{overflow-x:auto}
+#pipe{display:block;min-width:720px;width:100%;height:auto}
+#pipe .seg{stroke:var(--line);stroke-width:6;fill:none;stroke-linecap:round}
+#pipe .seg.on{stroke:var(--flow)}
+#pipe .flow{stroke:var(--lit);stroke-width:6;fill:none;stroke-linecap:round;stroke-dasharray:2 22;opacity:0}
+#pipe .flow.on{opacity:1;animation:run 1.1s linear infinite}
+@keyframes run{to{stroke-dashoffset:-24}}
+@media (prefers-reduced-motion: reduce){#pipe .flow.on{animation:none}}
+#pipe .node rect{fill:var(--paper);stroke:var(--line);stroke-width:2}
+#pipe .node.on rect{fill:var(--lit-soft);stroke:var(--lit)}
+#pipe .node text{font-family:var(--display);font-weight:600;font-size:15px;fill:var(--soft)}
+#pipe .node.on text{fill:var(--ink)}
+#pipe .node .ico{font-size:22px}
+#pipe .node .unlock{font-family:var(--body);font-size:12px;font-weight:400}
+.pipe-note{margin:6px 6px 0;color:var(--soft);font-size:15px}
+
+/* ---------- sections ---------- */
+section{padding:56px 0 8px}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,40px);letter-spacing:-.015em;line-height:1.1;margin:0 0 10px}
+h2 + p{color:var(--soft);margin:0 0 24px;max-width:60ch}
+h3{font-family:var(--display);font-weight:600;font-size:21px;margin:0 0 6px;line-height:1.25}
+
+/* method */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.rule{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.rule .big{font-family:var(--display);font-weight:800;font-size:30px;color:var(--flow);line-height:1;margin-bottom:8px}
+.rule p{margin:0;color:var(--soft)}
+.dayshape{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.blocks{display:flex;gap:6px;margin:12px 0 6px;height:46px}
+.blocks div{border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--ink);padding:0 8px;text-align:center;line-height:1.15}
+.b1{flex:40;background:var(--flow-soft)}
+.b2{flex:80;background:var(--lit-soft)}
+.b3{flex:10;background:color-mix(in srgb,var(--spark) 20%,transparent)}
+.b4{flex:90;background:color-mix(in srgb,var(--soft) 18%,transparent)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--soft);font-size:15px}
+
+/* plan */
+.weeks{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.weeks button{font:inherit;font-weight:700;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 16px;cursor:pointer}
+.weeks button[aria-selected="true"]{border-color:var(--flow);background:var(--flow);color:var(--card)}
+.weeks button .w-done{font-weight:400;opacity:.8;margin-left:6px}
+.week-intro{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--flow);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.week-intro p{margin:4px 0 0;color:var(--soft)}
+.day{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:8px;transition:border-color .2s}
+.day.done{border-color:var(--lit);background:linear-gradient(90deg,var(--lit-soft),var(--card) 40%)}
+.day summary{list-style:none;display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;gap:12px;padding:12px 14px;cursor:pointer}
+.day summary::-webkit-details-marker{display:none}
+.check{appearance:none;-webkit-appearance:none;width:26px;height:26px;border:2px solid var(--soft);border-radius:8px;display:grid;place-items:center;cursor:pointer;margin:0;background:var(--card)}
+.check:checked{background:var(--lit);border-color:var(--lit)}
+.check:checked::after{content:"";width:7px;height:13px;border:solid var(--ink);border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.dnum{font-family:var(--display);font-weight:800;color:var(--flow);font-size:15px;min-width:38px}
+.dtitle{font-weight:700}
+.dtitle small{display:block;font-weight:400;color:var(--soft);font-size:15px}
+.chev{width:10px;height:10px;border:solid var(--soft);border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .2s;margin-right:4px}
+.day[open] .chev{transform:rotate(-135deg)}
+.dbody{padding:0 16px 16px 16px;border-top:1px dashed var(--line);margin-top:2px}
+.dbody dl{display:grid;grid-template-columns:110px 1fr;gap:8px 14px;margin:14px 0 0}
+.dbody dt{font-weight:700;color:var(--flow)}
+.dbody dd{margin:0}
+.dbody ul{margin:0;padding-left:18px}
+.win{margin-top:12px;background:var(--lit-soft);border-radius:10px;padding:10px 12px;font-weight:700}
+.win::before{content:"Victoire du jour : ";font-weight:400}
+pre{background:var(--code-bg);color:var(--code-ink);font-family:var(--mono);font-size:14px;line-height:1.5;padding:12px 14px;border-radius:10px;overflow-x:auto;margin:10px 0 0}
+code{font-family:var(--mono);font-size:.9em}
+
+/* final project */
+.layers{display:grid;gap:10px}
+.layer{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.layer .ico{font-size:28px;line-height:1;text-align:center;padding-top:2px}
+.layer p{margin:2px 0 0;color:var(--soft)}
+.layer .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--flow-soft);color:var(--ink);border-radius:6px;padding:1px 8px;margin-left:6px;vertical-align:2px}
+
+/* glossary */
+.gloss-tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.gloss-tools input{font:inherit;flex:1 1 240px;padding:10px 14px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{font:inherit;font-size:15px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.terms{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.term{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.term h3{font-size:19px;margin-bottom:4px}
+.term p{margin:0}
+.term .like{color:var(--soft);font-size:15px;margin-top:6px;font-style:italic}
+.term .fam{font-size:12px;font-weight:700;color:var(--flow)}
+.empty{color:var(--soft);padding:12px 0}
+
+/* cv */
+.cv-steps{display:grid;gap:12px}
+.cv{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;position:relative}
+.cv.locked{opacity:.62}
+.cv .state{font-size:14px;font-weight:700;color:var(--soft)}
+.cv.unlocked .state{color:var(--flow)}
+.cv h3{margin-top:2px}
+.cv .lines{display:grid;gap:8px;margin-top:10px}
+.cv .ln{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:var(--paper);border-radius:10px;padding:8px 10px}
+.cv .ln span{font-size:16px}
+.cv .ln b{color:var(--flow)}
+.copy{font:inherit;font-size:14px;font-weight:700;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:5px 10px;cursor:pointer;white-space:nowrap}
+.copy.ok{background:var(--lit);border-color:var(--lit)}
+.rulebox{margin-top:14px;border:2px dashed var(--spark);border-radius:14px;padding:12px 16px}
+.rulebox p{margin:0}
+
+/* interview */
+.qs{display:grid;gap:8px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px}
+.q summary{cursor:pointer;padding:14px 16px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{content:"Voir la réponse";font-weight:400;color:var(--flow);font-size:15px;white-space:nowrap}
+.q[open] summary::after{content:"Masquer"}
+.q .a{padding:0 16px 14px;color:var(--ink)}
+.q .a p{margin:0 0 6px}
+
+/* apply */
+.apply{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.box ol,.box ul{margin:8px 0 0;padding-left:20px}
+.box li{margin-bottom:6px}
+.msg{background:var(--paper);border-radius:12px;padding:12px 14px;margin-top:10px;white-space:pre-line;font-size:16px}
+
+/* opportunities */
+.sub{margin:30px 0 10px;font-size:23px}
+.hint{color:var(--soft);margin:-4px 0 10px}
+.tagline{display:inline-block;font-size:14px;font-weight:700;color:var(--flow);margin-bottom:4px}
+.box p{margin:6px 0 0}
+.today{background:var(--card);border:2px solid var(--flow);border-radius:18px;padding:16px 18px}
+.today-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.today-total{font-family:var(--display);font-weight:800;font-size:30px;color:var(--flow)}
+.counters{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px}
+.counter{background:var(--paper);border-radius:12px;padding:10px 12px}
+.counter .c-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.counter .c-name{font-weight:700}
+.counter .c-n{font-family:var(--display);font-weight:800;font-size:22px}
+.counter .c-bar{height:6px;border-radius:3px;background:var(--line);margin:8px 0}
+.counter .c-bar i{display:block;height:100%;border-radius:3px;background:var(--lit);width:0;transition:width .3s}
+.counter .c-btns{display:flex;gap:6px}
+.counter button{font:inherit;font-weight:700;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:4px 12px;cursor:pointer}
+.counter button.plus{background:var(--flow);color:var(--card);border-color:var(--flow);flex:1}
+.today-week{margin:10px 0 0;color:var(--soft)}
+.kw{display:grid;gap:12px}
+.kchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.kchips button{font:inherit;font-size:15px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.kchips button.ok{background:var(--lit);border-color:var(--lit)}
+.targets{display:grid;gap:10px}
+.target{display:grid;grid-template-columns:44px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.t-rank{font-family:var(--display);font-weight:800;font-size:28px;color:var(--flow);line-height:1}
+.target p{margin:4px 0 0}
+.target .ex{color:var(--soft)}
+.target .where{font-weight:700}
+.funnel{list-style:none;padding:0;margin:0;display:grid;gap:8px;justify-items:center}
+.funnel li{width:var(--w);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;text-align:center}
+.funnel li:first-child{background:var(--lit-soft);border-color:var(--lit)}
+.funnel li b{display:block}
+.funnel li span{color:var(--soft);font-size:15px}
+@media (max-width:640px){.funnel li{width:100%}}
+.rule100{margin-top:18px;border:2px solid var(--spark)}
+.rule100 ol{margin:8px 0 0;padding-left:20px}
+.rule100 li{margin-bottom:8px}
+.rule100 code{background:var(--paper);padding:1px 5px;border-radius:5px}
+
+/* resources + bonus */
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.res a{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--ink)}
+.res a b{display:block}
+.res a span{color:var(--soft);font-size:15px}
+
+footer{padding:48px 0 64px;color:var(--soft)}
+footer button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 14px;cursor:pointer;margin-right:8px}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,calc(100% + 60px));visibility:hidden;background:var(--ink);color:var(--card);padding:12px 18px;border-radius:14px;font-weight:700;max-width:min(92vw,520px);text-align:center;transition:transform .35s ease,visibility .35s;z-index:40}
+.toast.show{transform:translate(-50%,0);visibility:visible}
+@media (prefers-reduced-motion: reduce){.toast{transition:none}}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .dbody dl{grid-template-columns:1fr;gap:2px}
+  .dbody dd{margin-bottom:8px}
+  .day summary{grid-template-columns:auto auto 1fr;gap:10px}
+  .chev{display:none}
+  .bar strong{display:none}
+  .bar nav{margin-left:0}
+}
+@media print{
+  .bar,.toast,footer button,.gloss-tools,.weeks{display:none}
+  details{display:block} details > *{display:block}
+  .day,.q{break-inside:avoid}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <strong>Mission Data</strong>
+    <nav aria-label="Sections">
+      <a href="file:///C:/Users/user/Documents/projet%20DATA%2005.10.2026/velib-data-pipeline/Mission%20Data%20_%2030%20jours%20pour%20d%C3%A9crocher%20une%20alternance.html#methode">La méthode</a>
+      <a href="file:///C:/Users/user/Documents/projet%20DATA%2005.10.2026/velib-data-pipeline/Mission%20Data%20_%2030%20jours%20pour%20d%C3%A9crocher%20une%20alternance.html#projet">Le projet</a>
+      <a href="file:///C:/Users/user/Documents/projet%20DATA%2005.10.2026/velib-data-pipeline/Mission%20Data%20_%2030%20jours%20pour%20d%C3%A9crocher%20une%20alternance.html#plan">Le plan</a>
+      <a href="file:///C:/Users/user/Documents/projet%20DATA%2005.10.2026/velib-data-pipeline/Mission%20Data%20_%2030%20jours%20pour%20d%C3%A9crocher%20une%20alternance.html#mots">Les mots</a>
+      <a href="file:///C:/Users/user/Documents/projet%20DATA%2005.10.2026/velib-data-pipeline/Mission%20Data%20_%2030%20jours%20pour%20d%C3%A9crocher%20une%20alternance.html#cv">Le CV</a>
+      <a href="file:///C:/Users/user/Documents/projet%20DATA%2005.10.2026/velib-data-pipeline/Mission%20Data%20_%2030%20jours%20pour%20d%C3%A9crocher%20une%20alternance.html#entretien">L’entretien</a>
+      <a href="file:///C:/Users/user/Documents/projet%20DATA%2005.10.2026/velib-data-pipeline/Mission%20Data%20_%2030%20jours%20pour%20d%C3%A9crocher%20une%20alternance.html#opportunites">Opportunités</a>
+    </nav>
+  </div>
+  <div class="meter" aria-hidden="true"><i id="meter" style="width: 3.33333%;"></i></div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>30 jours pour devenir Data Engineer en alternance</h1>
+    <p class="lead">Un seul projet, construit brique par brique. Chaque jour coché allume une partie du pipeline. À la fin du mois, il tourne en entier, et ton CV aussi.</p>
+
+    <div class="pipe-card">
+      <div class="pipe-head">
+        <b>Ton pipeline</b>
+        <span class="daycount" id="daycount">1 <small>/ 30 jours</small></span>
+      </div>
+      <div class="pipe-scroll">
+        <svg id="pipe" viewBox="0 0 900 190" role="img" aria-label="Pipeline de données : API, data lake, Airflow, dbt, entrepôt, Power BI. Les étapes s’allument au fil de ta progression.">
+          <g id="segs"><path d="M133 95 L167 95" class="seg" id="seg0"></path><path d="M133 95 L167 95" class="flow" id="flow0"></path><path d="M283 95 L317 95" class="seg" id="seg1"></path><path d="M283 95 L317 95" class="flow" id="flow1"></path><path d="M433 95 L467 95" class="seg" id="seg2"></path><path d="M433 95 L467 95" class="flow" id="flow2"></path><path d="M583 95 L617 95" class="seg" id="seg3"></path><path d="M583 95 L617 95" class="flow" id="flow3"></path><path d="M733 95 L767 95" class="seg" id="seg4"></path><path d="M733 95 L767 95" class="flow" id="flow4"></path></g>
+          <g id="nodes"><g class="node" id="node-api"><rect x="17" y="43" width="116" height="104" rx="18"></rect>
+      <text class="ico" x="75" y="83" text-anchor="middle">🌐</text>
+      <text x="75" y="111" text-anchor="middle">API</text>
+      <text class="unlock" x="75" y="131" text-anchor="middle">jour 7</text></g><g class="node" id="node-lake"><rect x="167" y="43" width="116" height="104" rx="18"></rect>
+      <text class="ico" x="225" y="83" text-anchor="middle">🗄️</text>
+      <text x="225" y="111" text-anchor="middle">Data lake</text>
+      <text class="unlock" x="225" y="131" text-anchor="middle">jour 24</text></g><g class="node" id="node-air"><rect x="317" y="43" width="116" height="104" rx="18"></rect>
+      <text class="ico" x="375" y="83" text-anchor="middle">⏱️</text>
+      <text x="375" y="111" text-anchor="middle">Airflow</text>
+      <text class="unlock" x="375" y="131" text-anchor="middle">jour 20</text></g><g class="node" id="node-dbt"><rect x="467" y="43" width="116" height="104" rx="18"></rect>
+      <text class="ico" x="525" y="83" text-anchor="middle">🧱</text>
+      <text x="525" y="111" text-anchor="middle">dbt</text>
+      <text class="unlock" x="525" y="131" text-anchor="middle">jour 17</text></g><g class="node" id="node-dwh"><rect x="617" y="43" width="116" height="104" rx="18"></rect>
+      <text class="ico" x="675" y="83" text-anchor="middle">🏛️</text>
+      <text x="675" y="111" text-anchor="middle">Entrepôt</text>
+      <text class="unlock" x="675" y="131" text-anchor="middle">jour 10</text></g><g class="node" id="node-pbi"><rect x="767" y="43" width="116" height="104" rx="18"></rect>
+      <text class="ico" x="825" y="83" text-anchor="middle">📊</text>
+      <text x="825" y="111" text-anchor="middle">Power BI</text>
+      <text class="unlock" x="825" y="131" text-anchor="middle">jour 14</text></g></g>
+        </svg>
+      </div>
+      <p class="pipe-note" id="pipenote">1 jour de fait. Le premier bloc s’allume au jour 7.</p>
+    </div>
+  </div>
+
+  <!-- METHODE -->
+  <section id="methode">
+    <h2>La méthode</h2>
+    <p>Pas de magie, juste cinq règles qui rendent le travail visible. C’est ça qui donne envie de continuer.</p>
+    <div class="rules">
+      <div class="rule"><div class="big">1 projet</div><p>Tout ce que tu apprends sert ton projet fil rouge. Rien ne reste théorique.</p></div>
+      <div class="rule"><div class="big">1 case / jour</div><p>Une journée finie, une case cochée. Ne casse pas la chaîne, même avec une petite journée.</p></div>
+      <div class="rule"><div class="big">1 commit / jour</div><p>Chaque jour finit sur GitHub. Le recruteur voit ta régularité.</p></div>
+      <div class="rule"><div class="big">30 actions</div><p>Chaque jour, dès le jour 1 : 10 offres récentes, 10 candidatures spontanées, 10 messages.</p></div>
+      <div class="rule"><div class="big">1 démo / semaine</div><p>Le dimanche, tu montres ton pipeline à quelqu’un. Expliquer, c’est le meilleur test.</p></div>
+    </div>
+
+    <div class="dayshape">
+      <h3>Une journée type : 4 h environ</h3>
+      <div class="blocks" aria-hidden="true">
+        <div class="b1">Comprendre</div>
+        <div class="b2">Construire</div>
+        <div class="b3">Montrer</div>
+        <div class="b4">Chasser</div>
+      </div>
+      <div class="legend">
+        <span><b>Comprendre</b> 40 min : la notion du jour</span>
+        <span><b>Construire</b> 1 h 20 : l’appliquer au projet</span>
+        <span><b>Montrer</b> 10 min : commit + 1 phrase dans ton journal</span>
+        <span><b>Chasser</b> 1 h 30 : tes 30 actions, de préférence le matin</span>
+      </div>
+      <p class="pipe-note" style="margin:10px 0 0">Bloquée plus de 30 minutes ? Demande de l’aide (Claude, un forum, un ami). Rester bloquée tue la motivation.</p>
+    </div>
+  </section>
+
+  <!-- PROJET -->
+  <section id="projet">
+    <h2>Le projet fil rouge</h2>
+    <p>Des données réelles qui bougent tous les jours, par exemple les stations Vélib’ de Paris (open data). À la fin, voici ce que tu sauras montrer et expliquer.</p>
+    <div class="layers" id="layers"><div class="layer"><div class="ico" aria-hidden="true">🌐</div><div><h3>Ingestion<span class="tag">Python</span></h3><p>Un script récupère les données de l’API et les enregistre sans rien perdre.</p></div></div><div class="layer"><div class="ico" aria-hidden="true">🗄️</div><div><h3>Data lake (bronze)<span class="tag">MinIO · Parquet</span></h3><p>Les données brutes sont stockées telles quelles, en fichiers Parquet rangés par date.</p></div></div><div class="layer"><div class="ico" aria-hidden="true">🧹</div><div><h3>Nettoyage (silver)<span class="tag">pandas · dbt</span></h3><p>On corrige les types, on enlève les doublons, on garde ce qui est fiable.</p></div></div><div class="layer"><div class="ico" aria-hidden="true">🏛️</div><div><h3>Entrepôt (gold)<span class="tag">PostgreSQL · Snowflake</span></h3><p>Les données propres sont organisées en modèle en étoile, prêtes à être analysées.</p></div></div><div class="layer"><div class="ico" aria-hidden="true">🧱</div><div><h3>Transformations<span class="tag">dbt</span></h3><p>Toutes les transformations sont en SQL, versionnées, testées et documentées.</p></div></div><div class="layer"><div class="ico" aria-hidden="true">⏱️</div><div><h3>Orchestration<span class="tag">Airflow</span></h3><p>Chaque jour, Airflow lance les étapes dans le bon ordre et réessaie en cas d’erreur.</p></div></div><div class="layer"><div class="ico" aria-hidden="true">📊</div><div><h3>Visualisation<span class="tag">Power BI</span></h3><p>Un dashboard clair : stations les plus utilisées, heures de pointe, tendances.</p></div></div><div class="layer"><div class="ico" aria-hidden="true">📦</div><div><h3>Industrialisation<span class="tag">Docker · GitHub Actions</span></h3><p>Tout se lance avec une commande, et les tests tournent à chaque push.</p></div></div></div>
+  </section>
+
+  <!-- PLAN -->
+  <section id="plan">
+    <h2>Le plan, jour par jour</h2>
+    <p>Ouvre un jour pour voir quoi apprendre et quoi faire. Coche-le quand c’est fait : ta progression est gardée.</p>
+    <div class="weeks" role="tablist" id="weektabs"><button role="tab" aria-selected="true" data-week="1">Semaine 1<span class="w-done">1/7</span></button><button role="tab" aria-selected="false" data-week="2">Semaine 2<span class="w-done">0/7</span></button><button role="tab" aria-selected="false" data-week="3">Semaine 3<span class="w-done">0/7</span></button><button role="tab" aria-selected="false" data-week="4">Semaine 4<span class="w-done">0/9</span></button></div>
+    <div id="weekpanel"><div class="week-intro"><h3>Les fondations : SQL + Python</h3><p>À la fin de la semaine, un script récupère des données réelles et les range dans une base.</p></div><details class="day done" id="day1">
+      <summary>
+        <input type="checkbox" class="check" data-day="1" aria-label="Jour 1 terminé">
+        <span class="dnum">J1</span>
+        <span class="dtitle">Monter ton atelier<small>Outils + choix des données</small></span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="dbody">
+        <dl>
+          <dt>Comprendre</dt><dd>Installer PostgreSQL, DBeaver (pour voir ta base), VS Code, Python et Git. Choisir ton jeu de données open data.</dd>
+          <dt>Faire</dt><dd><ul><li>Crée un dépôt GitHub « pipeline-data ».</li><li>Écris un README de 5 lignes : quel problème tu veux éclairer avec ces données.</li><li>Explore l’API Vélib’ sur opendata.paris.fr (ou un autre jeu qui t’inspire).</li></ul></dd>
+        </dl>
+        
+        <div class="win">Ton dépôt existe et ton objectif est écrit.</div>
+      </div>
+    </details><details class="day " id="day2">
+      <summary>
+        <input type="checkbox" class="check" data-day="2" aria-label="Jour 2 terminé">
+        <span class="dnum">J2</span>
+        <span class="dtitle">SQL express<small>SELECT, JOIN, GROUP BY</small></span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="dbody">
+        <dl>
+          <dt>Comprendre</dt><dd>Révision rapide : filtrer (WHERE), joindre deux tables (INNER et LEFT JOIN), regrouper (GROUP BY) et filtrer les groupes (HAVING).</dd>
+          <dt>Faire</dt><dd><ul><li>Fais 15 exercices sur PostgreSQL Exercises.</li><li>Note dans ton journal la différence entre INNER et LEFT JOIN, en une phrase.</li></ul></dd>
+        </dl>
+        <pre><code>SELECT s.nom, COUNT(*) AS nb_trajets
+FROM trajets t
+JOIN stations s ON s.id = t.station_id
+GROUP BY s.nom
+HAVING COUNT(*) &gt; 100;</code></pre>
+        <div class="win">15 exercices faits.</div>
+      </div>
+    </details><details class="day " id="day3">
+      <summary>
+        <input type="checkbox" class="check" data-day="3" aria-label="Jour 3 terminé">
+        <span class="dnum">J3</span>
+        <span class="dtitle">SQL avancé 1<small>Sous-requêtes et CTE</small></span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="dbody">
+        <dl>
+          <dt>Comprendre</dt><dd>Une CTE (WITH …) est une requête à qui on donne un nom, pour découper un problème compliqué en petites étapes lisibles.</dd>
+          <dt>Faire</dt><dd><ul><li>Réécris 3 requêtes d’hier avec des CTE.</li><li>Fais 5 exercices « moyens » sur StrataScratch.</li></ul></dd>
+        </dl>
+        <pre><code>WITH par_station AS (
+  SELECT station_id, COUNT(*) AS nb
+  FROM trajets GROUP BY station_id
+)
+SELECT * FROM par_station WHERE nb &gt; 100;</code></pre>
+        <div class="win">Tu sais découper une requête en étapes.</div>
+      </div>
+    </details><details class="day " id="day4">
+      <summary>
+        <input type="checkbox" class="check" data-day="4" aria-label="Jour 4 terminé">
+        <span class="dnum">J4</span>
+        <span class="dtitle">SQL avancé 2<small>Fonctions de fenêtre</small></span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="dbody">
+        <dl>
+          <dt>Comprendre</dt><dd>Une fonction de fenêtre calcule sur un groupe de lignes sans les fusionner : classement (ROW_NUMBER, RANK), ligne précédente (LAG), cumul (SUM OVER).</dd>
+          <dt>Faire</dt><dd><ul><li>Fais 6 exercices avec ROW_NUMBER, RANK et LAG.</li><li>Trouve le « top 3 par catégorie », la question d’entretien la plus classique.</li></ul></dd>
+        </dl>
+        <pre><code>SELECT station_id, jour, nb,
+  RANK() OVER (PARTITION BY jour ORDER BY nb DESC) AS rang
+FROM stats_jour;</code></pre>
+        <div class="win">Tu sais faire un top 3 par groupe.</div>
+      </div>
+    </details><details class="day " id="day5">
+      <summary>
+        <input type="checkbox" class="check" data-day="5" aria-label="Jour 5 terminé">
+        <span class="dnum">J5</span>
+        <span class="dtitle">Python pour une dev Java<small>La syntaxe en accéléré</small></span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="dbody">
+        <dl>
+          <dt>Comprendre</dt><dd>Tu connais déjà la logique. Il te reste la syntaxe : listes, dictionnaires, fonctions, f-strings, environnement virtuel (venv) et pip.</dd>
+          <dt>Faire</dt><dd><ul><li>Crée un venv dans ton projet et installe pandas, requests et sqlalchemy.</li><li>Écris 3 petites fonctions (filtrer une liste, compter des mots, lire un fichier).</li></ul></dd>
+        </dl>
+        <pre><code>stations = [{"nom": "Bastille", "velos": 12}]
+vides = [s for s in stations if s["velos"] == 0]
+print(f"{len(vides)} stations vides")</code></pre>
+        <div class="win">Python ne te fait plus peur.</div>
+      </div>
+    </details><details class="day " id="day6">
+      <summary>
+        <input type="checkbox" class="check" data-day="6" aria-label="Jour 6 terminé">
+        <span class="dnum">J6</span>
+        <span class="dtitle">pandas<small>Manipuler des tableaux de données</small></span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="dbody">
+        <dl>
+          <dt>Comprendre</dt><dd>pandas, c’est Excel en code : lire (read_csv, read_sql), filtrer, regrouper (groupby), joindre (merge), nettoyer (dropna), écrire (to_sql).</dd>
+          <dt>Faire</dt><dd><ul><li>Suis « 10 minutes to pandas ».</li><li>Charge un CSV d’open data et réponds à 3 questions dessus.</li></ul></dd>
+        </dl>
+        <pre><code>import pandas as pd
+df = pd.read_csv("stations.csv")
+df.groupby("arrondissement")["velos"].mean()</code></pre>
+        <div class="win">Tu sais répondre à une question avec pandas.</div>
+      </div>
+    </details><details class="day " id="day7">
+      <summary>
+        <input type="checkbox" class="check" data-day="7" aria-label="Jour 7 terminé">
+        <span class="dnum">J7</span>
+        <span class="dtitle">Ta première ingestion<small>API → Python → PostgreSQL</small></span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="dbody">
+        <dl>
+          <dt>Comprendre</dt><dd>L’ingestion, c’est faire entrer les données dans ton système. Ici : appeler l’API (requests), nettoyer (pandas), charger (SQLAlchemy).</dd>
+          <dt>Faire</dt><dd><ul><li>Écris ingest.py : appel API → DataFrame → table PostgreSQL.</li><li>Lance-le deux fois et vérifie le résultat dans DBeaver.</li><li>Fais la mise à jour CV n°1 (section CV ci-dessous).</li></ul></dd>
+        </dl>
+        <pre><code>import requests, pandas as pd
+from sqlalchemy import create_engine
+
+data = requests.get(URL).json()
+df = pd.json_normalize(data["results"])
+engine = create_engine("postgresql://user:pwd@localhost/data")
+df.to_sql("raw_stations", engine, if_exists="append", index=False)</code></pre>
+        <div class="win">Des données réelles arrivent dans ta base. Le premier bloc du pipeline s’allume.</div>
+      </div>
+    </details></div>
+  </section>
+
+  <!-- MOTS -->
+  <section id="mots">
+    <h2>Les mots techniques, en simple</h2>
+    <p>Tous les mots que tu vas croiser dans les offres et en entretien. Une phrase pour comprendre, une image pour retenir.</p>
+    <div class="gloss-tools">
+      <input type="search" id="q" placeholder="Chercher un mot (ex. idempotence)" aria-label="Chercher un mot">
+      <div class="chips" id="chips"><button aria-pressed="true" data-fam="Tout">Tout</button><button aria-pressed="false" data-fam="SQL">SQL</button><button aria-pressed="false" data-fam="Python">Python</button><button aria-pressed="false" data-fam="Concepts">Concepts</button><button aria-pressed="false" data-fam="Modélisation">Modélisation</button><button aria-pressed="false" data-fam="Stockage">Stockage</button><button aria-pressed="false" data-fam="Outils">Outils</button><button aria-pressed="false" data-fam="BI">BI</button></div>
+    </div>
+    <div class="terms" id="terms"><div class="term"><span class="fam">SQL</span><h3>SQL</h3><p>Le langage pour interroger une base de données.</p><p class="like">Comme : Poser des questions précises à un tableau géant.</p></div><div class="term"><span class="fam">SQL</span><h3>CTE (WITH)</h3><p>Une requête nommée qu’on réutilise juste après. Elle rend le SQL lisible.</p><p class="like">Comme : Des étapes de recette numérotées.</p></div><div class="term"><span class="fam">SQL</span><h3>Fonction de fenêtre</h3><p>Un calcul sur un groupe de lignes qui garde chaque ligne : classement, cumul, ligne précédente.</p><p class="like">Comme : Regarder ses voisins sans quitter sa place.</p></div><div class="term"><span class="fam">SQL</span><h3>Jointure (JOIN)</h3><p>Relier deux tables par une colonne commune.</p><p class="like">Comme : Associer un ticket de caisse à la fiche client.</p></div><div class="term"><span class="fam">Python</span><h3>pandas</h3><p>La bibliothèque Python pour manipuler des tableaux de données.</p><p class="like">Comme : Excel, mais en code et sans limite.</p></div><div class="term"><span class="fam">Python</span><h3>API</h3><p>Une porte d’entrée qui permet à un programme de demander des données à un autre.</p><p class="like">Comme : Le guichet où l’on commande les données.</p></div><div class="term"><span class="fam">Python</span><h3>Ingestion</h3><p>Faire entrer les données dans ton système, depuis une API, un fichier ou une base.</p><p class="like">Comme : Les camions qui livrent l’entrepôt.</p></div><div class="term"><span class="fam">Concepts</span><h3>Pipeline de données</h3><p>La chaîne d’étapes qui amène les données de la source jusqu’à l’analyse.</p><p class="like">Comme : Une chaîne de montage pour les données.</p></div><div class="term"><span class="fam">Concepts</span><h3>ETL</h3><p>Extract, Transform, Load : on transforme les données avant de les charger.</p><p class="like">Comme : On épluche les légumes avant de les ranger.</p></div><div class="term"><span class="fam">Concepts</span><h3>ELT</h3><p>Extract, Load, Transform : on charge d’abord, on transforme dans l’entrepôt. C’est la méthode moderne.</p><p class="like">Comme : On range tout, puis on cuisine sur place.</p></div><div class="term"><span class="fam">Concepts</span><h3>OLTP</h3><p>Une base pensée pour une application : beaucoup de petites écritures rapides.</p><p class="like">Comme : La caisse d’un magasin.</p></div><div class="term"><span class="fam">Concepts</span><h3>OLAP</h3><p>Une base pensée pour l’analyse : peu d’écritures, beaucoup de lectures massives.</p><p class="like">Comme : Le bilan de fin de mois.</p></div><div class="term"><span class="fam">Concepts</span><h3>Batch</h3><p>Traiter les données par paquets, à heure fixe (par exemple chaque nuit).</p><p class="like">Comme : Le facteur qui passe une fois par jour.</p></div><div class="term"><span class="fam">Concepts</span><h3>Streaming</h3><p>Traiter les données en continu, dès qu’elles arrivent.</p><p class="like">Comme : Un robinet toujours ouvert.</p></div><div class="term"><span class="fam">Concepts</span><h3>Idempotence</h3><p>Relancer une tâche donne le même résultat, sans doublons.</p><p class="like">Comme : Appuyer deux fois sur le bouton de l’ascenseur.</p></div><div class="term"><span class="fam">Concepts</span><h3>Chargement incrémental</h3><p>Ne traiter que les nouvelles données au lieu de tout recalculer.</p><p class="like">Comme : Lire seulement les nouveaux messages.</p></div><div class="term"><span class="fam">Concepts</span><h3>Qualité des données</h3><p>Vérifier que les données sont complètes, uniques et cohérentes, avec des tests automatiques.</p><p class="like">Comme : Le contrôle qualité en sortie d’usine.</p></div><div class="term"><span class="fam">Concepts</span><h3>Lignage (lineage)</h3><p>Le chemin d’une donnée, de la source jusqu’au dashboard.</p><p class="like">Comme : La traçabilité d’un produit alimentaire.</p></div><div class="term"><span class="fam">Modélisation</span><h3>Data warehouse (entrepôt)</h3><p>Une base centrale de données propres et structurées pour l’analyse.</p><p class="like">Comme : Une bibliothèque bien rangée.</p></div><div class="term"><span class="fam">Modélisation</span><h3>Modèle en étoile</h3><p>Une table de faits au centre, reliée à des tables de dimensions autour.</p><p class="like">Comme : Un soleil et ses planètes.</p></div><div class="term"><span class="fam">Modélisation</span><h3>Table de faits</h3><p>Ce qu’on mesure : montants, quantités, comptages.</p><p class="like">Comme : Les chiffres du ticket de caisse.</p></div><div class="term"><span class="fam">Modélisation</span><h3>Dimension</h3><p>Le contexte d’une mesure : qui, où, quand, quoi.</p><p class="like">Comme : La date, le magasin, le produit.</p></div><div class="term"><span class="fam">Modélisation</span><h3>Granularité</h3><p>Ce que représente une ligne de la table de faits.</p><p class="like">Comme : Le zoom de la photo.</p></div><div class="term"><span class="fam">Modélisation</span><h3>Staging</h3><p>La première couche de transformation : nettoyer et renommer, sans logique métier.</p><p class="like">Comme : Le tri du courrier à l’arrivée.</p></div><div class="term"><span class="fam">Modélisation</span><h3>Data mart</h3><p>Une partie de l’entrepôt prête pour un usage précis (finance, ventes…).</p><p class="like">Comme : Un rayon spécialisé du magasin.</p></div><div class="term"><span class="fam">Stockage</span><h3>Data lake</h3><p>Un espace de stockage pas cher où l’on garde toutes les données brutes, en fichiers.</p><p class="like">Comme : Un grand grenier où l’on garde tout.</p></div><div class="term"><span class="fam">Stockage</span><h3>Lakehouse</h3><p>Un mélange : le stockage pas cher du lake avec la structure de l’entrepôt.</p><p class="like">Comme : Un grenier avec des étagères étiquetées.</p></div><div class="term"><span class="fam">Stockage</span><h3>Architecture médaillon</h3><p>Trois couches : bronze (brut), silver (nettoyé), gold (prêt pour l’analyse).</p><p class="like">Comme : Minerai, métal, bijou.</p></div><div class="term"><span class="fam">Stockage</span><h3>Parquet</h3><p>Un format de fichier en colonnes, compressé et rapide à lire pour l’analyse.</p><p class="like">Comme : Ranger par colonnes plutôt que par lignes.</p></div><div class="term"><span class="fam">Stockage</span><h3>Partitionnement</h3><p>Ranger les fichiers par dossiers (par date, par exemple) pour ne lire que ce qui sert.</p><p class="like">Comme : Un classeur avec un onglet par mois.</p></div><div class="term"><span class="fam">Stockage</span><h3>Stockage objet (S3, MinIO)</h3><p>Un stockage de fichiers à grande échelle. MinIO imite S3 sur ta machine.</p><p class="like">Comme : Un entrepôt de cartons numérotés.</p></div><div class="term"><span class="fam">Outils</span><h3>dbt</h3><p>Un outil qui transforme les données dans l’entrepôt avec du SQL, testé et documenté.</p><p class="like">Comme : Git + tests, mais pour tes requêtes SQL.</p></div><div class="term"><span class="fam">Outils</span><h3>Airflow</h3><p>Un orchestrateur : il lance les tâches dans le bon ordre, au bon moment.</p><p class="like">Comme : Un chef d’orchestre avec un emploi du temps.</p></div><div class="term"><span class="fam">Outils</span><h3>DAG</h3><p>Directed Acyclic Graph : la liste des tâches et leur ordre, sans boucle.</p><p class="like">Comme : Une recette : on ne cuit pas avant d’avoir coupé.</p></div><div class="term"><span class="fam">Outils</span><h3>Orchestration</h3><p>Coordonner automatiquement les étapes d’un pipeline, avec horaires et relances.</p><p class="like">Comme : Le planning d’une cuisine de restaurant.</p></div><div class="term"><span class="fam">Outils</span><h3>Snowflake / BigQuery</h3><p>Des entrepôts de données dans le cloud, où l’on paie le calcul à l’usage.</p><p class="like">Comme : Louer une cuisine pro à l’heure.</p></div><div class="term"><span class="fam">Outils</span><h3>Spark (PySpark)</h3><p>Un moteur pour traiter de très gros volumes sur plusieurs machines à la fois.</p><p class="like">Comme : Cent cuisiniers au lieu d’un.</p></div><div class="term"><span class="fam">Outils</span><h3>Docker</h3><p>Emballer une application et tout ce qu’elle demande, pour qu’elle tourne partout pareil.</p><p class="like">Comme : Un conteneur maritime standard.</p></div><div class="term"><span class="fam">Outils</span><h3>CI/CD</h3><p>Tester et déployer automatiquement à chaque modification du code.</p><p class="like">Comme : Un contrôle technique à chaque sortie.</p></div><div class="term"><span class="fam">BI</span><h3>Power BI</h3><p>L’outil de Microsoft pour créer des tableaux de bord. Très demandé en France.</p><p class="like">Comme : Le tableau de bord de la voiture.</p></div><div class="term"><span class="fam">BI</span><h3>Power Query</h3><p>La partie de Power BI qui prépare et nettoie les données.</p><p class="like">Comme : L’atelier avant la vitrine.</p></div><div class="term"><span class="fam">BI</span><h3>DAX</h3><p>Le langage de calcul de Power BI, pour créer des mesures.</p><p class="like">Comme : Les formules Excel, en plus puissant.</p></div><div class="term"><span class="fam">BI</span><h3>KPI</h3><p>Un indicateur clé qui résume la performance en un chiffre.</p><p class="like">Comme : Le compteur de vitesse.</p></div></div>
+  </section>
+
+  <!-- CV -->
+  <section id="cv">
+    <h2>Ton CV grandit avec toi</h2>
+    <p>Chaque dimanche, une mise à jour. Les lignes se débloquent quand la semaine est finie. Copie-les telles quelles ou adapte-les.</p>
+    <div class="cv-steps" id="cvsteps"><div class="cv locked">
+      <span class="state">Se débloque au jour 7</span>
+      <h3>Mise à jour n°1 : après la semaine 1</h3>
+      <div class="lines"><div class="ln"><span><b>Compétences :</b> <span id="cv0-0">SQL avancé (CTE, fonctions de fenêtre), Python (pandas, requests, SQLAlchemy)</span></span><button class="copy" data-copy="cv0-0">Copier</button></div><div class="ln"><span><b>Projet :</b> <span id="cv0-1">Ingestion de données open data via API en Python, nettoyage avec pandas et chargement dans PostgreSQL.</span></span><button class="copy" data-copy="cv0-1">Copier</button></div></div>
+    </div><div class="cv locked">
+      <span class="state">Se débloque au jour 14</span>
+      <h3>Mise à jour n°2 : après la semaine 2</h3>
+      <div class="lines"><div class="ln"><span><b>Compétences :</b> <span id="cv1-0">Power BI (Power Query, DAX), modélisation en étoile (faits, dimensions)</span></span><button class="copy" data-copy="cv1-0">Copier</button></div><div class="ln"><span><b>Projet :</b> <span id="cv1-1">Conception d’un modèle en étoile et d’un dashboard Power BI de suivi de la disponibilité des stations.</span></span><button class="copy" data-copy="cv1-1">Copier</button></div></div>
+    </div><div class="cv locked">
+      <span class="state">Se débloque au jour 21</span>
+      <h3>Mise à jour n°3 : après la semaine 3</h3>
+      <div class="lines"><div class="ln"><span><b>Compétences :</b> <span id="cv2-0">dbt (modèles, tests, documentation), Airflow (DAG, planification), ETL/ELT, qualité des données</span></span><button class="copy" data-copy="cv2-0">Copier</button></div><div class="ln"><span><b>Projet :</b> <span id="cv2-1">Pipeline orchestré par Airflow : transformations dbt incrémentales, tests de qualité, conteneurisé avec Docker Compose.</span></span><button class="copy" data-copy="cv2-1">Copier</button></div></div>
+    </div><div class="cv locked">
+      <span class="state">Se débloque au jour 30</span>
+      <h3>Mise à jour n°4 : le CV final</h3>
+      <div class="lines"><div class="ln"><span><b>Compétences :</b> <span id="cv3-0">Data lake (MinIO / S3, Parquet), architecture médaillon, Snowflake, GitHub Actions</span></span><button class="copy" data-copy="cv3-0">Copier</button></div><div class="ln"><span><b>Certification :</b> <span id="cv3-1">dbt Fundamentals (dbt Labs)</span></span><button class="copy" data-copy="cv3-1">Copier</button></div><div class="ln"><span><b>Projet final :</b> <span id="cv3-2">Pipeline de données end-to-end : ingestion d’API vers un data lake (Parquet, MinIO), orchestration Airflow, transformations dbt (modèle en étoile, tests de qualité), entrepôt Snowflake, dashboard Power BI. Conteneurisé avec Docker, CI avec GitHub Actions.</span></span><button class="copy" data-copy="cv3-2">Copier</button></div><div class="ln"><span><b>Titre du CV :</b> <span id="cv3-3">Alternance Data Engineer / Analytics Engineer | M2 BI &amp; Data Science</span></span><button class="copy" data-copy="cv3-3">Copier</button></div></div>
+    </div></div>
+    <div class="rulebox"><p><b>La règle d’or :</b> n’ajoute un outil au CV que quand tu l’as utilisé dans ton projet. En entretien, on te demandera de l’expliquer.</p></div>
+  </section>
+
+  <!-- ENTRETIEN -->
+  <section id="entretien">
+    <h2>Les questions d’entretien</h2>
+    <p>Elles reviennent presque toujours. Réponds à voix haute, puis compare. Le top : t’appuyer sur ton propre projet.</p>
+    <div class="qs" id="qs"><details class="q"><summary>Quelle est la différence entre ETL et ELT ?</summary><div class="a"><p>En ETL, on transforme les données avant de les charger. En ELT, on les charge brutes dans l’entrepôt, puis on les transforme sur place.</p><p>L’ELT domine aujourd’hui parce que les entrepôts cloud calculent vite et pas cher. Dans mon projet, je charge d’abord, puis dbt transforme.</p></div></details><details class="q"><summary>Data lake, data warehouse, lakehouse : quelle différence ?</summary><div class="a"><p>Le lake garde tout, brut, en fichiers, pour pas cher. L’entrepôt garde des données propres et structurées pour l’analyse.</p><p>Le lakehouse combine les deux. Dans mon projet : bronze dans MinIO, gold dans l’entrepôt.</p></div></details><details class="q"><summary>C’est quoi un modèle en étoile ?</summary><div class="a"><p>Une table de faits au centre (ce qu’on mesure) et des dimensions autour (le contexte).</p><p>Chez moi : fact_disponibilite, avec dim_station et dim_date. Une ligne = une station à une heure.</p></div></details><details class="q"><summary>Pourquoi un pipeline doit-il être idempotent ?</summary><div class="a"><p>Parce qu’il va forcément être relancé un jour, après une panne par exemple. Le relancer ne doit pas créer de doublons.</p><p>Je supprime puis réécris la journée traitée, donc relancer donne le même résultat.</p></div></details><details class="q"><summary>À quoi sert Airflow ?</summary><div class="a"><p>À orchestrer : lancer les tâches dans le bon ordre, à heure fixe, avec relances en cas d’erreur et des logs.</p><p>Mon DAG fait ingestion → dbt run → dbt test, chaque jour.</p></div></details><details class="q"><summary>Batch ou streaming : quand choisir l’un ou l’autre ?</summary><div class="a"><p>Batch quand une mise à jour régulière suffit (chaque nuit, chaque heure). C’est plus simple et moins cher.</p><p>Streaming quand il faut réagir tout de suite : fraude, alertes, suivi en direct.</p></div></details><details class="q"><summary>Comment garantis-tu la qualité des données ?</summary><div class="a"><p>Avec des tests automatiques dans dbt : unique, not_null, relations entre tables. Ils tournent après chaque exécution.</p><p>Si un test échoue, Airflow le signale et les données fausses n’arrivent pas au dashboard.</p></div></details><details class="q"><summary>Pourquoi passer d’une carrière dev à la data ?</summary><div class="a"><p>Parce que j’aime construire des systèmes fiables, et la data engineering, c’est exactement ça appliqué aux données.</p><p>Mon passé Java, Docker et CI/CD me sert tous les jours : un pipeline, c’est du logiciel.</p></div></details></div>
+  </section>
+
+  <!-- OPPORTUNITES -->
+  <section id="opportunites">
+    <h2>Choper les opportunités</h2>
+    <p>30 actions par jour, mais au bon endroit. Le but n’est pas d’envoyer plus de CV : c’est d’en envoyer là où peu de gens postulent, et vite.</p>
+
+    <div class="today" id="today">
+      <div class="today-head">
+        <h3>Aujourd’hui</h3>
+        <span class="today-total" id="todaytotal">0 / 30</span>
+      </div>
+      <div class="counters" id="counters"><div class="counter">
+    <div class="c-top"><span class="c-name">Offres récentes</span><span class="c-n">0<small style="font-size:14px;color:var(--soft)"> / 10</small></span></div>
+    <div class="c-bar"><i style="width:0%"></i></div>
+    <div class="c-btns"><button class="minus" data-act="o" data-delta="-1" aria-label="Retirer une action : Offres récentes">−</button><button class="plus" data-act="o" data-delta="1">+1 offre</button></div>
+  </div><div class="counter">
+    <div class="c-top"><span class="c-name">Spontanées</span><span class="c-n">0<small style="font-size:14px;color:var(--soft)"> / 10</small></span></div>
+    <div class="c-bar"><i style="width:0%"></i></div>
+    <div class="c-btns"><button class="minus" data-act="s" data-delta="-1" aria-label="Retirer une action : Spontanées">−</button><button class="plus" data-act="s" data-delta="1">+1 spontanée</button></div>
+  </div><div class="counter">
+    <div class="c-top"><span class="c-name">Messages</span><span class="c-n">0<small style="font-size:14px;color:var(--soft)"> / 10</small></span></div>
+    <div class="c-bar"><i style="width:0%"></i></div>
+    <div class="c-btns"><button class="minus" data-act="m" data-delta="-1" aria-label="Retirer une action : Messages">−</button><button class="plus" data-act="m" data-delta="1">+1 message</button></div>
+  </div></div>
+      <p class="today-week" id="todayweek">Ces 7 derniers jours : 0 actions. Objectif de la semaine : 210.</p>
+    </div>
+
+    <h3 class="sub">Les 3 types d’actions</h3>
+    <div class="apply">
+      <div class="box">
+        <span class="tagline">10 par jour · 40 min</span>
+        <h3>Offres récentes</h3>
+        <p>Uniquement des offres publiées il y a moins de 48 h. Reprends 3 à 5 mots-clés de l’offre dans ton CV, puis postule sur le site de l’entreprise si possible.</p>
+      </div>
+      <div class="box">
+        <span class="tagline">10 par jour · 30 min</span>
+        <h3>Candidatures spontanées</h3>
+        <p>Aux entreprises qui recrutent des alternants sans forcément publier d’offre : ESN, PME, startups. Peu de concurrence, beaucoup de réponses.</p>
+      </div>
+      <div class="box">
+        <span class="tagline">10 par jour · 20 min</span>
+        <h3>Messages LinkedIn</h3>
+        <p>Au recruteur de l’offre, à un manager data ou à un ancien de ton école. C’est l’action qui décroche le plus d’entretiens.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Les postes à chercher</h3>
+    <p class="hint">Clique sur un intitulé pour le copier, puis colle-le dans la recherche du site.</p>
+    <div class="kw">
+      <div><b>Cible principale</b><div class="kchips">
+        <button data-kw="">Alternance Data Engineer</button><button data-kw="">Alternance Analytics Engineer</button><button data-kw="">Alternance Ingénieur Data</button><button data-kw="">Data Engineer apprenti</button>
+      </div></div>
+      <div><b>Cible secondaire</b><div class="kchips">
+        <button data-kw="">Alternance Développeur BI</button><button data-kw="">Alternance Power BI</button><button data-kw="">Alternance Consultant Data</button><button data-kw="">Alternance Data Analyst</button><button data-kw="">Alternance Business Intelligence</button>
+      </div></div>
+      <div><b>Plan B</b><div class="kchips">
+        <button data-kw="">Alternance Développeur Full Stack Java</button><button data-kw="">Alternance Développeur Java Angular</button>
+      </div></div>
+    </div>
+
+    <h3 class="sub">Les entreprises à viser</h3>
+    <div class="targets">
+      <div class="target">
+        <div class="t-rank">1</div>
+        <div>
+          <h3>ESN et cabinets de conseil data</h3>
+          <p>Ce sont eux qui recrutent le plus d’alternants data, toute l’année, avec des process rapides. Ton profil dev + data leur plaît.</p>
+          <p class="ex">Exemples : Capgemini, Sopra Steria, Accenture, CGI, Inetum, Devoteam, Keyrus, Micropole, Onepoint, Wavestone.</p>
+          <p class="where">Où : leur site carrières, filtre « alternance » + « data ».</p>
+        </div>
+      </div>
+      <div class="target">
+        <div class="t-rank">2</div>
+        <div>
+          <h3>PME, ETI et startups</h3>
+          <p>Elles publient peu d’offres, donc presque personne ne postule. Une candidature spontanée bien ciblée y a de vraies chances.</p>
+          <p class="where">Où : La Bonne Alternance (elle liste les entreprises qui recrutent souvent des alternants), Welcome to the Jungle.</p>
+        </div>
+      </div>
+      <div class="target">
+        <div class="t-rank">3</div>
+        <div>
+          <h3>Grands groupes</h3>
+          <p>Beaucoup d’offres, mais beaucoup de candidats. Il faut être parmi les premiers : postule dans les 24 h sur leur site carrières.</p>
+          <p class="ex">Secteurs qui recrutent en data : banque, assurance, énergie, transport, distribution.</p>
+          <p class="where">Où : leur site carrières, avec une alerte email.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub">Où chercher, du moins encombré au plus encombré</h3>
+    <ol class="funnel">
+      <li style="--w:100%"><b>Ton réseau</b><span>Service entreprises de l’école, anciens alternants, onglet « Anciens élèves » de la page LinkedIn de ton école.</span></li>
+      <li style="--w:92%"><b>Les sites carrières des entreprises</b><span>Moins de monde que sur LinkedIn, et ta candidature arrive directement chez le recruteur.</span></li>
+      <li style="--w:84%"><b>La Bonne Alternance</b><span>Le site de l’État : offres + entreprises qui recrutent sans publier.</span></li>
+      <li style="--w:76%"><b>Welcome to the Jungle, HelloWork, APEC, Indeed, JobTeaser</b><span>Crée une alerte email sur chacun avec tes intitulés.</span></li>
+      <li style="--w:68%"><b>LinkedIn, en dernier</b><span>Seulement avec le filtre « 24 dernières heures ».</span></li>
+    </ol>
+
+    <div class="box rule100">
+      <h3>Une offre à plus de 100 candidats ?</h3>
+      <p>Oui, tes chances sont faibles si tu fais comme les autres. Trois règles :</p>
+      <ol>
+        <li><b>Priorité aux offres de moins de 48 h.</b> Sur LinkedIn, dans l’adresse de la recherche, remplace <code>f_TPR=r86400</code> par <code>f_TPR=r3600</code> pour ne voir que la dernière heure.</li>
+        <li><b>Plus de 100 candidats : ne passe pas 20 minutes dessus.</b> Postule vite, puis envoie un message au recruteur. Beaucoup de ces 100 ne correspondent pas au poste : un message te sort du lot.</li>
+        <li><b>Alertes email partout</b>, pour postuler le jour même où l’offre sort.</li>
+      </ol>
+    </div>
+
+    <h3 class="sub">Les messages, prêts à copier</h3>
+    <div class="apply">
+      <div class="box">
+        <h3>Au recruteur, après avoir postulé</h3>
+        <div class="msg" id="msg">Bonjour [Prénom],
+Je viens de postuler à l’alternance [intitulé] chez [entreprise].
+Ingénieure en génie logiciel en M2 BI &amp; Data Science, je construis en ce moment un pipeline data complet (Airflow, dbt, Power BI) visible sur mon GitHub.
+Je serais ravie d’échanger quelques minutes sur le poste.
+Belle journée,
+[Ton prénom]</div>
+        <p style="margin:10px 0 0"><button class="copy" data-copy="msg">Copier le message</button></p>
+      </div>
+      <div class="box">
+        <h3>Candidature spontanée (email)</h3>
+        <div class="msg" id="msg2">Objet : Alternance Data Engineer – M2 BI &amp; Data Science – dès [date]
+
+Bonjour,
+Ingénieure en génie logiciel et en M2 BI &amp; Data Science à [école], je recherche une alternance de [12] mois en data engineering, au rythme de [rythme].
+Mon expérience en développement (Java, Spring Boot, Docker, CI/CD) et mon projet de pipeline data (Airflow, dbt, Power BI) me permettent d’être rapidement utile à vos équipes data.
+Vous trouverez mon CV en pièce jointe. Seriez-vous disponible pour un court échange ?
+Bien cordialement,
+[Prénom Nom] – [téléphone] – [lien GitHub]</div>
+        <p style="margin:10px 0 0"><button class="copy" data-copy="msg2">Copier l’email</button></p>
+      </div>
+      <div class="box">
+        <h3>À un ancien de ton école</h3>
+        <div class="msg" id="msg3">Bonjour [Prénom],
+Je suis en M2 BI &amp; Data Science à [école], comme toi il y a quelques années.
+Je cherche une alternance en data engineering et j’ai vu que tu travailles chez [entreprise].
+Est-ce que ton équipe accueille des alternants ? Un conseil de ta part m’aiderait beaucoup.
+Merci d’avance,
+[Ton prénom]</div>
+        <p style="margin:10px 0 0"><button class="copy" data-copy="msg3">Copier le message</button></p>
+      </div>
+    </div>
+
+    <div class="box" style="margin-top:14px">
+      <h3>Le point du dimanche</h3>
+      <ul>
+        <li><b>Compte</b> tes actions et tes réponses de la semaine dans ton tableau de suivi.</li>
+        <li><b>Relance</b> chaque candidature sans réponse au bout de 7 jours, avec un message court.</li>
+        <li><b>Après 2 semaines</b> (environ 300 actions) sans aucun entretien, le problème vient du CV, pas de toi : fais-le relire et change le titre et les mots-clés.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RESSOURCES -->
+  <section id="ressources">
+    <h2>Les ressources</h2>
+    <p>Gratuites, sérieuses, et suffisantes pour tout le mois.</p>
+    <div class="res">
+      <a href="https://pgexercises.com/" target="_blank" rel="noopener"><b>PostgreSQL Exercises</b><span>SQL, des bases aux fonctions de fenêtre</span></a>
+      <a href="https://www.stratascratch.com/" target="_blank" rel="noopener"><b>StrataScratch</b><span>Vraies questions SQL d’entretien</span></a>
+      <a href="https://pandas.pydata.org/docs/user_guide/10min.html" target="_blank" rel="noopener"><b>10 minutes to pandas</b><span>La prise en main officielle</span></a>
+      <a href="https://learn.microsoft.com/fr-fr/training/powerplatform/power-bi" target="_blank" rel="noopener"><b>Microsoft Learn : Power BI</b><span>Parcours gratuits en français</span></a>
+      <a href="https://learn.getdbt.com/" target="_blank" rel="noopener"><b>dbt Learn</b><span>Le cours dbt Fundamentals, gratuit</span></a>
+      <a href="https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html" target="_blank" rel="noopener"><b>Tutoriel Airflow</b><span>Les bases officielles des DAG</span></a>
+      <a href="https://github.com/DataTalksClub/data-engineering-zoomcamp" target="_blank" rel="noopener"><b>Data Engineering Zoomcamp</b><span>Le cours gratuit de référence</span></a>
+    </div>
+    <div class="box" style="margin-top:14px">
+      <h3>Après le mois : les bonus</h3>
+      <ul>
+        <li><b>PySpark</b> : traiter de gros volumes, très demandé dans les grands groupes.</li>
+        <li><b>Une certification Microsoft</b> : PL-300 (Power BI) ou DP-900 (Azure Data).</li>
+        <li><b>Le streaming</b> : comprendre Kafka, pour les postes temps réel.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><button type="button" id="print">Imprimer ou enregistrer en PDF</button><button type="button" id="reset">Remettre la progression à zéro</button></p>
+    <p id="savenote">Ta progression est gardée sur cet appareil.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Jour 1 fait. Une case de plus dans la chaîne.</div>
+
+<script>
+/* ================= CONTENT ================= */
+const STAGES = [
+  {id:"api",   ico:"🌐", name:"API",        unlock:7,  note:"Tes données arrivent : le script d’ingestion tourne."},
+  {id:"lake",  ico:"🗄️", name:"Data lake",  unlock:24, note:"Les données brutes dorment dans ton lake en Parquet."},
+  {id:"air",   ico:"⏱️", name:"Airflow",    unlock:20, note:"Airflow lance tout seul ton pipeline chaque jour."},
+  {id:"dbt",   ico:"🧱", name:"dbt",        unlock:17, note:"dbt transforme et teste tes données."},
+  {id:"dwh",   ico:"🏛️", name:"Entrepôt",   unlock:10, note:"Ton modèle en étoile vit dans l’entrepôt."},
+  {id:"pbi",   ico:"📊", name:"Power BI",   unlock:14, note:"Ton dashboard raconte ce que disent les données."}
+];
+
+const LAYERS = [
+  {ico:"🌐", t:"Ingestion", tag:"Python", d:"Un script récupère les données de l’API et les enregistre sans rien perdre."},
+  {ico:"🗄️", t:"Data lake (bronze)", tag:"MinIO · Parquet", d:"Les données brutes sont stockées telles quelles, en fichiers Parquet rangés par date."},
+  {ico:"🧹", t:"Nettoyage (silver)", tag:"pandas · dbt", d:"On corrige les types, on enlève les doublons, on garde ce qui est fiable."},
+  {ico:"🏛️", t:"Entrepôt (gold)", tag:"PostgreSQL · Snowflake", d:"Les données propres sont organisées en modèle en étoile, prêtes à être analysées."},
+  {ico:"🧱", t:"Transformations", tag:"dbt", d:"Toutes les transformations sont en SQL, versionnées, testées et documentées."},
+  {ico:"⏱️", t:"Orchestration", tag:"Airflow", d:"Chaque jour, Airflow lance les étapes dans le bon ordre et réessaie en cas d’erreur."},
+  {ico:"📊", t:"Visualisation", tag:"Power BI", d:"Un dashboard clair : stations les plus utilisées, heures de pointe, tendances."},
+  {ico:"📦", t:"Industrialisation", tag:"Docker · GitHub Actions", d:"Tout se lance avec une commande, et les tests tournent à chaque push."}
+];
+
+const WEEKS = [
+  {n:1, title:"Les fondations", sub:"SQL + Python", goal:"À la fin de la semaine, un script récupère des données réelles et les range dans une base."},
+  {n:2, title:"Modéliser et montrer", sub:"Entrepôt + Power BI", goal:"À la fin de la semaine, tes données sont bien organisées et racontées dans un dashboard."},
+  {n:3, title:"Industrialiser", sub:"dbt + Docker + Airflow", goal:"À la fin de la semaine, ton pipeline tourne tout seul, chaque jour."},
+  {n:4, title:"Lake, cloud et finition", sub:"Data lake + cloud + entretien", goal:"À la fin du mois, ton projet est complet, documenté, et tu sais le défendre."}
+];
+
+const DAYS = [
+ // ---------- SEMAINE 1 ----------
+ {d:1,w:1,t:"Monter ton atelier",s:"Outils + choix des données",
+  learn:"Installer PostgreSQL, DBeaver (pour voir ta base), VS Code, Python et Git. Choisir ton jeu de données open data.",
+  doIt:["Crée un dépôt GitHub « pipeline-data ».","Écris un README de 5 lignes : quel problème tu veux éclairer avec ces données.","Explore l’API Vélib’ sur opendata.paris.fr (ou un autre jeu qui t’inspire)."],
+  win:"Ton dépôt existe et ton objectif est écrit."},
+ {d:2,w:1,t:"SQL express",s:"SELECT, JOIN, GROUP BY",
+  learn:"Révision rapide : filtrer (WHERE), joindre deux tables (INNER et LEFT JOIN), regrouper (GROUP BY) et filtrer les groupes (HAVING).",
+  doIt:["Fais 15 exercices sur PostgreSQL Exercises.","Note dans ton journal la différence entre INNER et LEFT JOIN, en une phrase."],
+  code:"SELECT s.nom, COUNT(*) AS nb_trajets\nFROM trajets t\nJOIN stations s ON s.id = t.station_id\nGROUP BY s.nom\nHAVING COUNT(*) > 100;",
+  win:"15 exercices faits."},
+ {d:3,w:1,t:"SQL avancé 1",s:"Sous-requêtes et CTE",
+  learn:"Une CTE (WITH …) est une requête à qui on donne un nom, pour découper un problème compliqué en petites étapes lisibles.",
+  doIt:["Réécris 3 requêtes d’hier avec des CTE.","Fais 5 exercices « moyens » sur StrataScratch."],
+  code:"WITH par_station AS (\n  SELECT station_id, COUNT(*) AS nb\n  FROM trajets GROUP BY station_id\n)\nSELECT * FROM par_station WHERE nb > 100;",
+  win:"Tu sais découper une requête en étapes."},
+ {d:4,w:1,t:"SQL avancé 2",s:"Fonctions de fenêtre",
+  learn:"Une fonction de fenêtre calcule sur un groupe de lignes sans les fusionner : classement (ROW_NUMBER, RANK), ligne précédente (LAG), cumul (SUM OVER).",
+  doIt:["Fais 6 exercices avec ROW_NUMBER, RANK et LAG.","Trouve le « top 3 par catégorie », la question d’entretien la plus classique."],
+  code:"SELECT station_id, jour, nb,\n  RANK() OVER (PARTITION BY jour ORDER BY nb DESC) AS rang\nFROM stats_jour;",
+  win:"Tu sais faire un top 3 par groupe."},
+ {d:5,w:1,t:"Python pour une dev Java",s:"La syntaxe en accéléré",
+  learn:"Tu connais déjà la logique. Il te reste la syntaxe : listes, dictionnaires, fonctions, f-strings, environnement virtuel (venv) et pip.",
+  doIt:["Crée un venv dans ton projet et installe pandas, requests et sqlalchemy.","Écris 3 petites fonctions (filtrer une liste, compter des mots, lire un fichier)."],
+  code:"stations = [{\"nom\": \"Bastille\", \"velos\": 12}]\nvides = [s for s in stations if s[\"velos\"] == 0]\nprint(f\"{len(vides)} stations vides\")",
+  win:"Python ne te fait plus peur."},
+ {d:6,w:1,t:"pandas",s:"Manipuler des tableaux de données",
+  learn:"pandas, c’est Excel en code : lire (read_csv, read_sql), filtrer, regrouper (groupby), joindre (merge), nettoyer (dropna), écrire (to_sql).",
+  doIt:["Suis « 10 minutes to pandas ».","Charge un CSV d’open data et réponds à 3 questions dessus."],
+  code:"import pandas as pd\ndf = pd.read_csv(\"stations.csv\")\ndf.groupby(\"arrondissement\")[\"velos\"].mean()",
+  win:"Tu sais répondre à une question avec pandas."},
+ {d:7,w:1,t:"Ta première ingestion",s:"API → Python → PostgreSQL",
+  learn:"L’ingestion, c’est faire entrer les données dans ton système. Ici : appeler l’API (requests), nettoyer (pandas), charger (SQLAlchemy).",
+  doIt:["Écris ingest.py : appel API → DataFrame → table PostgreSQL.","Lance-le deux fois et vérifie le résultat dans DBeaver.","Fais la mise à jour CV n°1 (section CV ci-dessous)."],
+  code:"import requests, pandas as pd\nfrom sqlalchemy import create_engine\n\ndata = requests.get(URL).json()\ndf = pd.json_normalize(data[\"results\"])\nengine = create_engine(\"postgresql://user:pwd@localhost/data\")\ndf.to_sql(\"raw_stations\", engine, if_exists=\"append\", index=False)",
+  win:"Des données réelles arrivent dans ta base. Le premier bloc du pipeline s’allume."},
+
+ // ---------- SEMAINE 2 ----------
+ {d:8,w:2,t:"Les grands concepts",s:"OLTP, OLAP, ETL, ELT",
+  learn:"OLTP : la base d’une appli, pensée pour écrire vite. OLAP : la base d’analyse, pensée pour lire beaucoup. ETL : on transforme avant de charger. ELT : on charge d’abord, on transforme dans l’entrepôt (la méthode moderne).",
+  doIt:["Dessine sur papier le chemin de tes données, de l’API au dashboard.","Explique ETL vs ELT à voix haute en 30 secondes."],
+  win:"Tu sais dire pourquoi l’ELT domine aujourd’hui."},
+ {d:9,w:2,t:"Le modèle en étoile",s:"Faits et dimensions",
+  learn:"Au centre, la table de faits : ce qu’on mesure (nombre de vélos, à telle heure). Autour, les dimensions : le contexte (station, date, heure). On choisit d’abord la granularité : une ligne = quoi ?",
+  doIt:["Dessine ton étoile : fact_disponibilite, dim_station, dim_date.","Écris la granularité en une phrase : « une ligne = une station à une heure »."],
+  win:"Ton modèle tient sur une feuille."},
+ {d:10,w:2,t:"Construire l’entrepôt",s:"Les tables en SQL",
+  learn:"Créer les tables du modèle en étoile, avec clés primaires et étrangères, puis les remplir à partir de la table brute.",
+  doIt:["Écris le script SQL de création des tables.","Remplis-les avec INSERT … SELECT depuis raw_stations.","Vérifie avec une jointure faits + dimensions."],
+  win:"Ton entrepôt existe. Le bloc Entrepôt s’allume."},
+ {d:11,w:2,t:"Power BI 1",s:"Connexion et Power Query",
+  learn:"Power Query sert à préparer les données avant l’analyse : types, colonnes, filtres. Ensuite, on relie les tables dans la vue Modèle.",
+  doIt:["Connecte Power BI Desktop à PostgreSQL.","Importe ton étoile et vérifie les relations.","Astuce : Power BI Desktop ne tourne que sous Windows. Sur Mac, utilise une machine virtuelle ou un PC de l’école."],
+  win:"Tes données sont dans Power BI, bien reliées."},
+ {d:12,w:2,t:"Power BI 2",s:"DAX, les bases",
+  learn:"DAX, c’est le langage des calculs. Une mesure se calcule selon ce qui est affiché. CALCULATE change le contexte du calcul.",
+  doIt:["Crée 4 mesures : total, moyenne, taux de stations vides, évolution sur 7 jours.","Comprends la différence entre une colonne calculée et une mesure."],
+  code:"Taux stations vides =\nDIVIDE(\n  CALCULATE(COUNTROWS(fact), fact[velos] = 0),\n  COUNTROWS(fact)\n)",
+  win:"Tu as tes premières mesures DAX."},
+ {d:13,w:2,t:"Power BI 3",s:"Le dashboard",
+  learn:"Un bon dashboard répond à une question. En haut les chiffres clés, au milieu les tendances, en bas le détail.",
+  doIt:["Construis une page : 3 KPI, une carte, une courbe par heure.","Publie des captures dans le README."],
+  win:"Ton dashboard raconte une histoire."},
+ {d:14,w:2,t:"Démo + CV",s:"Montrer ce que tu as fait",
+  learn:"Expliquer ton projet en 2 minutes : le problème, les données, le modèle, ce que montre le dashboard.",
+  doIt:["Fais la démo à quelqu’un.","Mise à jour CV n°2.","Premier post LinkedIn : une capture + 3 lignes sur ce que tu as appris."],
+  win:"Le bloc Power BI s’allume. Deux semaines, déjà un vrai projet."},
+
+ // ---------- SEMAINE 3 ----------
+ {d:15,w:3,t:"dbt 1",s:"Les bases",
+  learn:"dbt transforme les données dans l’entrepôt avec du SQL. Chaque fichier .sql est un modèle. ref() relie les modèles entre eux, et dbt calcule l’ordre tout seul.",
+  doIt:["Installe dbt-postgres et lance dbt init.","Déclare ta table brute comme source.","Crée ton premier modèle et lance dbt run."],
+  code:"-- models/staging/stg_stations.sql\nselect\n  station_id,\n  lower(trim(nom)) as nom,\n  cast(velos as int) as velos\nfrom {{ source('raw', 'raw_stations') }}",
+  win:"Ton premier modèle dbt tourne."},
+ {d:16,w:3,t:"dbt 2",s:"Les couches",
+  learn:"On range les modèles en couches : staging (nettoyer), intermediate (combiner), marts (les tables finales pour l’analyse, ton étoile).",
+  doIt:["Refais ton modèle en étoile dans dbt (staging → marts).","Supprime les anciens scripts SQL manuels."],
+  win:"Ton entrepôt est construit par dbt."},
+ {d:17,w:3,t:"dbt 3",s:"Tests et documentation",
+  learn:"Les tests vérifient la qualité : unique, not_null, relations entre tables. dbt docs génère la documentation et le lignage (le chemin de chaque donnée).",
+  doIt:["Ajoute au moins 6 tests dans schema.yml.","Lance dbt test puis dbt docs generate et dbt docs serve.","Fais une capture du graphe de lignage pour le README."],
+  win:"Tes données sont testées. Le bloc dbt s’allume."},
+ {d:18,w:3,t:"Docker Compose",s:"Ton terrain, en une commande",
+  learn:"Tu connais Docker : on met PostgreSQL et ton code dans un docker-compose.yml, pour que n’importe qui lance le projet en une commande.",
+  doIt:["Écris le docker-compose.yml (PostgreSQL + ton app).","Teste docker compose up depuis zéro."],
+  win:"Ton projet se lance partout."},
+ {d:19,w:3,t:"Airflow 1",s:"DAG, tâches, planification",
+  learn:"Airflow est un chef d’orchestre. Un DAG est une liste de tâches avec un ordre et un horaire. Le scheduler lance les tâches au bon moment.",
+  doIt:["Lance Airflow avec le docker-compose officiel.","Crée un DAG « hello » avec deux tâches qui se suivent.","Explore l’interface : runs, logs, retries."],
+  win:"Airflow tourne chez toi."},
+ {d:20,w:3,t:"Airflow 2",s:"Orchestrer ton pipeline",
+  learn:"Ton vrai DAG : ingestion → dbt run → dbt test, tous les jours. Un bon pipeline est idempotent : le relancer ne crée pas de doublons.",
+  doIt:["Écris le DAG avec retries=2.","Rends ton ingestion idempotente (supprime puis réécris la journée).","Lance-le et vérifie les logs."],
+  code:"with DAG(\"pipeline_velib\", schedule=\"@daily\",\n         start_date=datetime(2026, 1, 1), catchup=False):\n    ingest = PythonOperator(task_id=\"ingest\", python_callable=run_ingest)\n    run = BashOperator(task_id=\"dbt_run\", bash_command=\"dbt run\")\n    test = BashOperator(task_id=\"dbt_test\", bash_command=\"dbt test\")\n    ingest >> run >> test",
+  win:"Ton pipeline tourne tout seul. Le bloc Airflow s’allume."},
+ {d:21,w:3,t:"Démo + CV",s:"Le chargement incrémental",
+  learn:"Incrémental : au lieu de tout recalculer, on ne traite que les nouvelles données. Plus rapide, moins cher. En dbt : materialized='incremental'.",
+  doIt:["Passe ta table de faits en incrémental dans dbt.","Démo de la semaine.","Mise à jour CV n°3."],
+  win:"Trois semaines : un vrai pipeline de data engineer."},
+
+ // ---------- SEMAINE 4 ----------
+ {d:22,w:4,t:"Le data lake",s:"Lake, entrepôt, lakehouse",
+  learn:"Le data lake stocke tout, brut et pas cher, en fichiers. L’entrepôt stocke propre et structuré. Le lakehouse mélange les deux. Parquet est un format en colonnes : léger et rapide à lire.",
+  doIt:["Compare la taille d’un même jeu de données en CSV et en Parquet.","Explique lake vs entrepôt en 30 secondes."],
+  code:"df.to_parquet(\"stations.parquet\")  # souvent 5 à 10 fois plus léger",
+  win:"Tu sais pourquoi Parquet est partout."},
+ {d:23,w:4,t:"Ton lake avec MinIO",s:"Stockage objet en local",
+  learn:"MinIO imite Amazon S3 sur ta machine. On range les fichiers par partition, par exemple date=2026-10-12/, pour retrouver vite une journée.",
+  doIt:["Ajoute MinIO au docker-compose.","Fais écrire à ton ingestion des fichiers Parquet partitionnés par date."],
+  win:"Tes données brutes ont un vrai lake."},
+ {d:24,w:4,t:"L’architecture médaillon",s:"Bronze, silver, gold",
+  learn:"Bronze : brut, jamais modifié. Silver : nettoyé. Gold : prêt pour l’analyse. On peut toujours tout reconstruire depuis le bronze.",
+  doIt:["Réorganise ton pipeline : API → bronze (MinIO) → silver → gold (entrepôt).","Mets à jour ton DAG Airflow.","Dessine le schéma final dans le README (avec Mermaid)."],
+  win:"Le data lake s’allume. Le pipeline est complet."},
+ {d:25,w:4,t:"Le cloud",s:"Snowflake ou BigQuery",
+  learn:"Dans le cloud, le stockage et le calcul sont séparés : tu paies le calcul quand tu l’utilises. Snowflake offre un essai gratuit de 30 jours, BigQuery un bac à sable gratuit.",
+  doIt:["Crée un compte d’essai.","Charge ta couche gold.","Branche dbt dessus (nouveau profil)."],
+  win:"Ton entrepôt vit dans le cloud."},
+ {d:26,w:4,t:"CI avec GitHub Actions",s:"Tester à chaque push",
+  learn:"L’intégration continue lance automatiquement tes vérifications à chaque modification. Tu connais déjà Jenkins : c’est le même principe.",
+  doIt:["Crée un workflow qui lance un linter Python et dbt build sur une petite base de test.","Ajoute le badge « passing » au README."],
+  win:"Ton projet a la rigueur d’une équipe pro."},
+ {d:27,w:4,t:"Le README pro",s:"La vitrine du projet",
+  learn:"Un recruteur passe 30 secondes sur ton GitHub. Le README doit montrer en un coup d’œil : le schéma, les outils, comment lancer, et les choix faits.",
+  doIt:["Schéma en haut, puis « Stack », « Lancer le projet », « Choix techniques ».","Ajoute les captures du dashboard et du lignage dbt."],
+  win:"Ton GitHub donne envie de te rencontrer."},
+ {d:28,w:4,t:"Certification",s:"dbt Fundamentals",
+  learn:"Le cours dbt Fundamentals est gratuit et prend environ 5 heures. Tu connais déjà tout grâce au projet, donc ça va vite.",
+  doIt:["Termine le cours sur learn.getdbt.com.","Ajoute le badge sur LinkedIn."],
+  win:"Une certification sur ton profil."},
+ {d:29,w:4,t:"Entraînement entretien",s:"Questions + SQL chronométré",
+  learn:"Réponds aux questions de la section Entretien à voix haute. Fais 3 exercices SQL en 15 minutes chacun, comme en vrai test.",
+  doIt:["Enregistre-toi sur 2 questions et réécoute.","3 exercices SQL chronométrés."],
+  win:"Tu es prête pour les entretiens."},
+ {d:30,w:4,t:"La démo finale",s:"Montrer le tout",
+  learn:"Ton pitch de 2 minutes : le problème, le pipeline, ce que tu as appris, ce que tu ferais ensuite.",
+  doIt:["Vidéo de 2 minutes ou post LinkedIn avec le schéma final.","Mise à jour CV n°4.","Célèbre. Vraiment."],
+  win:"Mission accomplie : tu as construit un pipeline complet en 30 jours."}
+];
+
+const TERMS = [
+ {f:"SQL",t:"SQL",d:"Le langage pour interroger une base de données.",l:"Poser des questions précises à un tableau géant."},
+ {f:"SQL",t:"CTE (WITH)",d:"Une requête nommée qu’on réutilise juste après. Elle rend le SQL lisible.",l:"Des étapes de recette numérotées."},
+ {f:"SQL",t:"Fonction de fenêtre",d:"Un calcul sur un groupe de lignes qui garde chaque ligne : classement, cumul, ligne précédente.",l:"Regarder ses voisins sans quitter sa place."},
+ {f:"SQL",t:"Jointure (JOIN)",d:"Relier deux tables par une colonne commune.",l:"Associer un ticket de caisse à la fiche client."},
+ {f:"Python",t:"pandas",d:"La bibliothèque Python pour manipuler des tableaux de données.",l:"Excel, mais en code et sans limite."},
+ {f:"Python",t:"API",d:"Une porte d’entrée qui permet à un programme de demander des données à un autre.",l:"Le guichet où l’on commande les données."},
+ {f:"Python",t:"Ingestion",d:"Faire entrer les données dans ton système, depuis une API, un fichier ou une base.",l:"Les camions qui livrent l’entrepôt."},
+ {f:"Concepts",t:"Pipeline de données",d:"La chaîne d’étapes qui amène les données de la source jusqu’à l’analyse.",l:"Une chaîne de montage pour les données."},
+ {f:"Concepts",t:"ETL",d:"Extract, Transform, Load : on transforme les données avant de les charger.",l:"On épluche les légumes avant de les ranger."},
+ {f:"Concepts",t:"ELT",d:"Extract, Load, Transform : on charge d’abord, on transforme dans l’entrepôt. C’est la méthode moderne.",l:"On range tout, puis on cuisine sur place."},
+ {f:"Concepts",t:"OLTP",d:"Une base pensée pour une application : beaucoup de petites écritures rapides.",l:"La caisse d’un magasin."},
+ {f:"Concepts",t:"OLAP",d:"Une base pensée pour l’analyse : peu d’écritures, beaucoup de lectures massives.",l:"Le bilan de fin de mois."},
+ {f:"Concepts",t:"Batch",d:"Traiter les données par paquets, à heure fixe (par exemple chaque nuit).",l:"Le facteur qui passe une fois par jour."},
+ {f:"Concepts",t:"Streaming",d:"Traiter les données en continu, dès qu’elles arrivent.",l:"Un robinet toujours ouvert."},
+ {f:"Concepts",t:"Idempotence",d:"Relancer une tâche donne le même résultat, sans doublons.",l:"Appuyer deux fois sur le bouton de l’ascenseur."},
+ {f:"Concepts",t:"Chargement incrémental",d:"Ne traiter que les nouvelles données au lieu de tout recalculer.",l:"Lire seulement les nouveaux messages."},
+ {f:"Concepts",t:"Qualité des données",d:"Vérifier que les données sont complètes, uniques et cohérentes, avec des tests automatiques.",l:"Le contrôle qualité en sortie d’usine."},
+ {f:"Concepts",t:"Lignage (lineage)",d:"Le chemin d’une donnée, de la source jusqu’au dashboard.",l:"La traçabilité d’un produit alimentaire."},
+ {f:"Modélisation",t:"Data warehouse (entrepôt)",d:"Une base centrale de données propres et structurées pour l’analyse.",l:"Une bibliothèque bien rangée."},
+ {f:"Modélisation",t:"Modèle en étoile",d:"Une table de faits au centre, reliée à des tables de dimensions autour.",l:"Un soleil et ses planètes."},
+ {f:"Modélisation",t:"Table de faits",d:"Ce qu’on mesure : montants, quantités, comptages.",l:"Les chiffres du ticket de caisse."},
+ {f:"Modélisation",t:"Dimension",d:"Le contexte d’une mesure : qui, où, quand, quoi.",l:"La date, le magasin, le produit."},
+ {f:"Modélisation",t:"Granularité",d:"Ce que représente une ligne de la table de faits.",l:"Le zoom de la photo."},
+ {f:"Modélisation",t:"Staging",d:"La première couche de transformation : nettoyer et renommer, sans logique métier.",l:"Le tri du courrier à l’arrivée."},
+ {f:"Modélisation",t:"Data mart",d:"Une partie de l’entrepôt prête pour un usage précis (finance, ventes…).",l:"Un rayon spécialisé du magasin."},
+ {f:"Stockage",t:"Data lake",d:"Un espace de stockage pas cher où l’on garde toutes les données brutes, en fichiers.",l:"Un grand grenier où l’on garde tout."},
+ {f:"Stockage",t:"Lakehouse",d:"Un mélange : le stockage pas cher du lake avec la structure de l’entrepôt.",l:"Un grenier avec des étagères étiquetées."},
+ {f:"Stockage",t:"Architecture médaillon",d:"Trois couches : bronze (brut), silver (nettoyé), gold (prêt pour l’analyse).",l:"Minerai, métal, bijou."},
+ {f:"Stockage",t:"Parquet",d:"Un format de fichier en colonnes, compressé et rapide à lire pour l’analyse.",l:"Ranger par colonnes plutôt que par lignes."},
+ {f:"Stockage",t:"Partitionnement",d:"Ranger les fichiers par dossiers (par date, par exemple) pour ne lire que ce qui sert.",l:"Un classeur avec un onglet par mois."},
+ {f:"Stockage",t:"Stockage objet (S3, MinIO)",d:"Un stockage de fichiers à grande échelle. MinIO imite S3 sur ta machine.",l:"Un entrepôt de cartons numérotés."},
+ {f:"Outils",t:"dbt",d:"Un outil qui transforme les données dans l’entrepôt avec du SQL, testé et documenté.",l:"Git + tests, mais pour tes requêtes SQL."},
+ {f:"Outils",t:"Airflow",d:"Un orchestrateur : il lance les tâches dans le bon ordre, au bon moment.",l:"Un chef d’orchestre avec un emploi du temps."},
+ {f:"Outils",t:"DAG",d:"Directed Acyclic Graph : la liste des tâches et leur ordre, sans boucle.",l:"Une recette : on ne cuit pas avant d’avoir coupé."},
+ {f:"Outils",t:"Orchestration",d:"Coordonner automatiquement les étapes d’un pipeline, avec horaires et relances.",l:"Le planning d’une cuisine de restaurant."},
+ {f:"Outils",t:"Snowflake / BigQuery",d:"Des entrepôts de données dans le cloud, où l’on paie le calcul à l’usage.",l:"Louer une cuisine pro à l’heure."},
+ {f:"Outils",t:"Spark (PySpark)",d:"Un moteur pour traiter de très gros volumes sur plusieurs machines à la fois.",l:"Cent cuisiniers au lieu d’un."},
+ {f:"Outils",t:"Docker",d:"Emballer une application et tout ce qu’elle demande, pour qu’elle tourne partout pareil.",l:"Un conteneur maritime standard."},
+ {f:"Outils",t:"CI/CD",d:"Tester et déployer automatiquement à chaque modification du code.",l:"Un contrôle technique à chaque sortie."},
+ {f:"BI",t:"Power BI",d:"L’outil de Microsoft pour créer des tableaux de bord. Très demandé en France.",l:"Le tableau de bord de la voiture."},
+ {f:"BI",t:"Power Query",d:"La partie de Power BI qui prépare et nettoie les données.",l:"L’atelier avant la vitrine."},
+ {f:"BI",t:"DAX",d:"Le langage de calcul de Power BI, pour créer des mesures.",l:"Les formules Excel, en plus puissant."},
+ {f:"BI",t:"KPI",d:"Un indicateur clé qui résume la performance en un chiffre.",l:"Le compteur de vitesse."}
+];
+
+const CVSTEPS = [
+ {after:7, title:"Mise à jour n°1 : après la semaine 1",
+  lines:[
+   ["Compétences","SQL avancé (CTE, fonctions de fenêtre), Python (pandas, requests, SQLAlchemy)"],
+   ["Projet","Ingestion de données open data via API en Python, nettoyage avec pandas et chargement dans PostgreSQL."]
+  ]},
+ {after:14, title:"Mise à jour n°2 : après la semaine 2",
+  lines:[
+   ["Compétences","Power BI (Power Query, DAX), modélisation en étoile (faits, dimensions)"],
+   ["Projet","Conception d’un modèle en étoile et d’un dashboard Power BI de suivi de la disponibilité des stations."]
+  ]},
+ {after:21, title:"Mise à jour n°3 : après la semaine 3",
+  lines:[
+   ["Compétences","dbt (modèles, tests, documentation), Airflow (DAG, planification), ETL/ELT, qualité des données"],
+   ["Projet","Pipeline orchestré par Airflow : transformations dbt incrémentales, tests de qualité, conteneurisé avec Docker Compose."]
+  ]},
+ {after:30, title:"Mise à jour n°4 : le CV final",
+  lines:[
+   ["Compétences","Data lake (MinIO / S3, Parquet), architecture médaillon, Snowflake, GitHub Actions"],
+   ["Certification","dbt Fundamentals (dbt Labs)"],
+   ["Projet final","Pipeline de données end-to-end : ingestion d’API vers un data lake (Parquet, MinIO), orchestration Airflow, transformations dbt (modèle en étoile, tests de qualité), entrepôt Snowflake, dashboard Power BI. Conteneurisé avec Docker, CI avec GitHub Actions."],
+   ["Titre du CV","Alternance Data Engineer / Analytics Engineer | M2 BI & Data Science"]
+  ]}
+];
+
+const QUESTIONS = [
+ {q:"Quelle est la différence entre ETL et ELT ?",a:["En ETL, on transforme les données avant de les charger. En ELT, on les charge brutes dans l’entrepôt, puis on les transforme sur place.","L’ELT domine aujourd’hui parce que les entrepôts cloud calculent vite et pas cher. Dans mon projet, je charge d’abord, puis dbt transforme."]},
+ {q:"Data lake, data warehouse, lakehouse : quelle différence ?",a:["Le lake garde tout, brut, en fichiers, pour pas cher. L’entrepôt garde des données propres et structurées pour l’analyse.","Le lakehouse combine les deux. Dans mon projet : bronze dans MinIO, gold dans l’entrepôt."]},
+ {q:"C’est quoi un modèle en étoile ?",a:["Une table de faits au centre (ce qu’on mesure) et des dimensions autour (le contexte).","Chez moi : fact_disponibilite, avec dim_station et dim_date. Une ligne = une station à une heure."]},
+ {q:"Pourquoi un pipeline doit-il être idempotent ?",a:["Parce qu’il va forcément être relancé un jour, après une panne par exemple. Le relancer ne doit pas créer de doublons.","Je supprime puis réécris la journée traitée, donc relancer donne le même résultat."]},
+ {q:"À quoi sert Airflow ?",a:["À orchestrer : lancer les tâches dans le bon ordre, à heure fixe, avec relances en cas d’erreur et des logs.","Mon DAG fait ingestion → dbt run → dbt test, chaque jour."]},
+ {q:"Batch ou streaming : quand choisir l’un ou l’autre ?",a:["Batch quand une mise à jour régulière suffit (chaque nuit, chaque heure). C’est plus simple et moins cher.","Streaming quand il faut réagir tout de suite : fraude, alertes, suivi en direct."]},
+ {q:"Comment garantis-tu la qualité des données ?",a:["Avec des tests automatiques dans dbt : unique, not_null, relations entre tables. Ils tournent après chaque exécution.","Si un test échoue, Airflow le signale et les données fausses n’arrivent pas au dashboard."]},
+ {q:"Pourquoi passer d’une carrière dev à la data ?",a:["Parce que j’aime construire des systèmes fiables, et la data engineering, c’est exactement ça appliqué aux données.","Mon passé Java, Docker et CI/CD me sert tous les jours : un pipeline, c’est du logiciel."]}
+];
+
+/* ================= STATE ================= */
+const LS_KEY = "mission-data-progress-v1";
+let state = {done:{}, apps:{}};
+let remote = null; // db doc ref
+function loadLocal(){ try{ const r = localStorage.getItem(LS_KEY); if(r){ const p = JSON.parse(r); if(p && p.done){ state = p; if(!state.apps) state.apps = {}; } } }catch(e){} }
+function saveLocal(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){} }
+let saveTimer = null;
+function persist(){
+  saveLocal();
+  if(!remote) return;
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async () => {
+    try{ await remote.set({done: state.done, apps: state.apps, updatedAt: Date.now()}); }catch(e){}
+  }, 600);
+}
+const doneCount = () => Object.values(state.done).filter(Boolean).length;
+const isDone = d => !!state.done["d"+d];
+const weekDone = w => DAYS.filter(x => x.w === w).every(x => isDone(x.d));
+
+/* ================= PIPELINE SVG ================= */
+const NS = "http://www.w3.org/2000/svg";
+function buildPipe(){
+  const segs = document.getElementById("segs"), nodes = document.getElementById("nodes");
+  const xs = STAGES.map((_, i) => 75 + i * 150), y = 95;
+  for(let i = 0; i < STAGES.length - 1; i++){
+    const p = document.createElementNS(NS, "path");
+    p.setAttribute("d", `M${xs[i] + 58} ${y} L${xs[i + 1] - 58} ${y}`);
+    p.setAttribute("class", "seg"); p.id = "seg" + i; segs.appendChild(p);
+    const f = p.cloneNode(); f.setAttribute("class", "flow"); f.id = "flow" + i; segs.appendChild(f);
+  }
+  STAGES.forEach((s, i) => {
+    const g = document.createElementNS(NS, "g");
+    g.setAttribute("class", "node"); g.id = "node-" + s.id;
+    g.innerHTML = `<rect x="${xs[i] - 58}" y="${y - 52}" width="116" height="104" rx="18"></rect>
+      <text class="ico" x="${xs[i]}" y="${y - 12}" text-anchor="middle">${s.ico}</text>
+      <text x="${xs[i]}" y="${y + 16}" text-anchor="middle">${s.name}</text>
+      <text class="unlock" x="${xs[i]}" y="${y + 36}" text-anchor="middle">jour ${s.unlock}</text>`;
+    nodes.appendChild(g);
+  });
+}
+function renderPipe(){
+  let lastLit = null;
+  STAGES.forEach(s => {
+    const on = isDone(s.unlock);
+    document.getElementById("node-" + s.id).classList.toggle("on", on);
+    if(on && (!lastLit || s.unlock > lastLit.unlock)) lastLit = s;
+  });
+  for(let i = 0; i < STAGES.length - 1; i++){
+    const on = isDone(STAGES[i].unlock) && isDone(STAGES[i + 1].unlock);
+    document.getElementById("seg" + i).classList.toggle("on", on);
+    document.getElementById("flow" + i).classList.toggle("on", on);
+  }
+  const n = doneCount();
+  document.getElementById("daycount").innerHTML = `${n} <small>/ 30 jours</small>`;
+  document.getElementById("meter").style.width = (n / 30 * 100) + "%";
+  const note = document.getElementById("pipenote");
+  if(n === 0) note.textContent = "Coche ton premier jour pour lancer le moteur.";
+  else if(n === 30) note.textContent = "Tout est allumé. Ton pipeline tourne de bout en bout.";
+  else if(lastLit) note.textContent = lastLit.note;
+  else note.textContent = `${n} jour${n > 1 ? "s" : ""} de fait. Le premier bloc s’allume au jour 7.`;
+}
+
+/* ================= LAYERS ================= */
+function renderLayers(){
+  document.getElementById("layers").innerHTML = LAYERS.map(l =>
+    `<div class="layer"><div class="ico" aria-hidden="true">${l.ico}</div><div><h3>${l.t}<span class="tag">${l.tag}</span></h3><p>${l.d}</p></div></div>`).join("");
+}
+
+/* ================= PLAN ================= */
+let currentWeek = 1;
+function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function renderTabs(){
+  document.getElementById("weektabs").innerHTML = WEEKS.map(w => {
+    const total = DAYS.filter(x => x.w === w.n).length, done = DAYS.filter(x => x.w === w.n && isDone(x.d)).length;
+    return `<button role="tab" aria-selected="${w.n === currentWeek}" data-week="${w.n}">Semaine ${w.n}<span class="w-done">${done}/${total}</span></button>`;
+  }).join("");
+}
+function renderWeek(){
+  const w = WEEKS[currentWeek - 1];
+  const days = DAYS.filter(x => x.w === currentWeek);
+  document.getElementById("weekpanel").innerHTML =
+    `<div class="week-intro"><h3>${w.title} : ${w.sub}</h3><p>${w.goal}</p></div>` +
+    days.map(x => `<details class="day ${isDone(x.d) ? "done" : ""}" id="day${x.d}">
+      <summary>
+        <input type="checkbox" class="check" data-day="${x.d}" ${isDone(x.d) ? "checked" : ""} aria-label="Jour ${x.d} terminé">
+        <span class="dnum">J${x.d}</span>
+        <span class="dtitle">${x.t}<small>${x.s}</small></span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="dbody">
+        <dl>
+          <dt>Comprendre</dt><dd>${x.learn}</dd>
+          <dt>Faire</dt><dd><ul>${x.doIt.map(i => `<li>${i}</li>`).join("")}</ul></dd>
+        </dl>
+        ${x.code ? `<pre><code>${esc(x.code)}</code></pre>` : ""}
+        <div class="win">${x.win}</div>
+      </div>
+    </details>`).join("");
+}
+
+/* ================= GLOSSARY ================= */
+let fam = "Tout";
+function renderChips(){
+  const fams = ["Tout", ...new Set(TERMS.map(t => t.f))];
+  document.getElementById("chips").innerHTML = fams.map(f => `<button aria-pressed="${f === fam}" data-fam="${f}">${f}</button>`).join("");
+}
+function renderTerms(){
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const list = TERMS.filter(t => (fam === "Tout" || t.f === fam) && (!q || (t.t + " " + t.d).toLowerCase().includes(q)));
+  document.getElementById("terms").innerHTML = list.length
+    ? list.map(t => `<div class="term"><span class="fam">${t.f}</span><h3>${t.t}</h3><p>${t.d}</p><p class="like">Comme : ${t.l}</p></div>`).join("")
+    : `<p class="empty">Aucun mot trouvé. Essaie un autre mot ou choisis « Tout ».</p>`;
+}
+
+/* ================= CV ================= */
+function renderCV(){
+  document.getElementById("cvsteps").innerHTML = CVSTEPS.map((c, ci) => {
+    const open = isDone(c.after);
+    return `<div class="cv ${open ? "unlocked" : "locked"}">
+      <span class="state">${open ? "Débloquée : à ajouter maintenant" : "Se débloque au jour " + c.after}</span>
+      <h3>${c.title}</h3>
+      <div class="lines">${c.lines.map((l, li) => `<div class="ln"><span><b>${l[0]} :</b> <span id="cv${ci}-${li}">${l[1]}</span></span><button class="copy" data-copy="cv${ci}-${li}">Copier</button></div>`).join("")}</div>
+    </div>`;
+  }).join("");
+}
+
+/* ================= QUESTIONS ================= */
+function renderQs(){
+  document.getElementById("qs").innerHTML = QUESTIONS.map(x =>
+    `<details class="q"><summary>${x.q}</summary><div class="a">${x.a.map(p => `<p>${p}</p>`).join("")}</div></details>`).join("");
+}
+
+/* ================= TOAST ================= */
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 3600);
+}
+
+
+/* ================= DAILY ACTIONS ================= */
+const ACTS = [{k:"o",name:"Offres récentes",one:"offre"},{k:"s",name:"Spontanées",one:"spontanée"},{k:"m",name:"Messages",one:"message"}];
+function dayKey(d){ const x = d || new Date(); return x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0")+"-"+String(x.getDate()).padStart(2,"0"); }
+function todayApps(){ const k = dayKey(); if(!state.apps[k]) state.apps[k] = {o:0,s:0,m:0}; return state.apps[k]; }
+function weekTotal(){
+  let t = 0; const now = new Date();
+  for(let i = 0; i < 7; i++){ const d = new Date(now); d.setDate(now.getDate() - i); const a = state.apps[dayKey(d)]; if(a) t += (a.o||0)+(a.s||0)+(a.m||0); }
+  return t;
+}
+function renderCounters(){
+  const a = todayApps();
+  document.getElementById("counters").innerHTML = ACTS.map(x => `<div class="counter">
+    <div class="c-top"><span class="c-name">${x.name}</span><span class="c-n">${a[x.k]||0}<small style="font-size:14px;color:var(--soft)"> / 10</small></span></div>
+    <div class="c-bar"><i style="width:${Math.min(100,(a[x.k]||0)*10)}%"></i></div>
+    <div class="c-btns"><button class="minus" data-act="${x.k}" data-delta="-1" aria-label="Retirer une action : ${x.name}">−</button><button class="plus" data-act="${x.k}" data-delta="1">+1 ${x.one}</button></div>
+  </div>`).join("");
+  const tot = (a.o||0)+(a.s||0)+(a.m||0);
+  document.getElementById("todaytotal").textContent = tot + " / 30";
+  document.getElementById("todayweek").textContent = `Ces 7 derniers jours : ${weekTotal()} actions. Objectif de la semaine : 210.`;
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-act]");
+  if(b){
+    const a = todayApps(), k = b.dataset.act, before = (a.o||0)+(a.s||0)+(a.m||0);
+    a[k] = Math.max(0, (a[k]||0) + (+b.dataset.delta));
+    persist(); renderCounters();
+    const after = (a.o||0)+(a.s||0)+(a.m||0);
+    if(before < 30 && after >= 30) toast("30 actions aujourd’hui. Journée de chasse réussie.");
+    else if(before < 15 && after >= 15) toast("La moitié est faite. Continue.");
+    return;
+  }
+  const kw = e.target.closest("[data-kw]");
+  if(kw){
+    const txt = kw.textContent;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(() => { kw.classList.add("ok"); toast("Copié : " + txt); setTimeout(() => kw.classList.remove("ok"), 1500); }).catch(() => {});
+    }
+  }
+});
+
+/* ================= EVENTS ================= */
+function renderAll(){ renderPipe(); renderTabs(); renderWeek(); renderCV(); renderCounters(); }
+
+document.addEventListener("click", e => {
+  const tab = e.target.closest("[data-week]");
+  if(tab){ currentWeek = +tab.dataset.week; renderTabs(); renderWeek(); return; }
+  const chip = e.target.closest("[data-fam]");
+  if(chip){ fam = chip.dataset.fam; renderChips(); renderTerms(); return; }
+  const cp = e.target.closest("[data-copy]");
+  if(cp){
+    const txt = document.getElementById(cp.dataset.copy).innerText;
+    const done = () => { const old = cp.textContent; cp.textContent = "Copié"; cp.classList.add("ok"); setTimeout(() => { cp.textContent = old; cp.classList.remove("ok"); }, 1500); };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done).catch(() => {}); }
+    return;
+  }
+});
+document.addEventListener("change", e => {
+  if(!e.target.classList.contains("check")) return;
+  const d = +e.target.dataset.day;
+  const wasWeekDone = weekDone(DAYS.find(x => x.d === d).w);
+  state.done["d" + d] = e.target.checked;
+  persist();
+  const w = DAYS.find(x => x.d === d).w;
+  const day = document.getElementById("day" + d);
+  if(day) day.classList.toggle("done", e.target.checked);
+  renderPipe(); renderTabs(); renderCV();
+  if(e.target.checked){
+    const stage = STAGES.find(s => s.unlock === d);
+    if(doneCount() === 30) toast("30 jours. Tu l’as fait. Ton pipeline tourne en entier.");
+    else if(!wasWeekDone && weekDone(w)) toast(`Semaine ${w} terminée. Ta mise à jour du CV est débloquée.`);
+    else if(stage) toast(`Bloc ${stage.name} allumé.`);
+    else toast(`Jour ${d} fait. Une case de plus dans la chaîne.`);
+  }
+});
+document.getElementById("q").addEventListener("input", renderTerms);
+document.getElementById("print").addEventListener("click", () => window.print());
+let resetArmed = false;
+document.getElementById("reset").addEventListener("click", e => {
+  const b = e.currentTarget;
+  if(!resetArmed){ resetArmed = true; b.textContent = "Clique encore pour confirmer"; setTimeout(() => { resetArmed = false; b.textContent = "Remettre la progression à zéro"; }, 4000); return; }
+  resetArmed = false; b.textContent = "Remettre la progression à zéro";
+  state = {done:{}, apps:{}}; persist(); renderAll(); toast("Progression remise à zéro.");
+});
+
+/* ================= INIT ================= */
+loadLocal();
+buildPipe(); renderLayers(); renderChips(); renderTerms(); renderQs();
+// open the week of the next day to do
+const next = DAYS.find(x => !isDone(x.d));
+currentWeek = next ? next.w : 4;
+renderAll();
+
+(async () => {
+  try{
+    if(!window.claude || typeof window.claude.use !== "function") return;
+    const db = await window.claude.use("db");
+    const user = await window.claude.use("user");
+    if(!db || !user) return;
+    const uid = await user.id();
+    if(!uid) return;
+    const ref = db.doc("data/users/" + uid + "/progress");
+    const snap = await ref.get();
+    if(snap.exists){
+      const data = snap.data() || {};
+      if(data.done){
+        // merge: a day done anywhere stays done
+        const merged = Object.assign({}, data.done);
+        Object.keys(state.done).forEach(k => { if(state.done[k]) merged[k] = true; });
+        state.done = merged;
+      }
+      if(data.apps){
+        Object.keys(data.apps).forEach(k => {
+          const r = data.apps[k] || {}, l = state.apps[k] || {o:0,s:0,m:0};
+          state.apps[k] = {o:Math.max(r.o||0,l.o||0), s:Math.max(r.s||0,l.s||0), m:Math.max(r.m||0,l.m||0)};
+        });
+      }
+      saveLocal(); renderAll();
+    }
+    remote = ref;
+    document.getElementById("savenote").textContent = "Ta progression est gardée sur ton compte, sur tous tes appareils.";
+    if(doneCount() > 0 && !snap.exists) persist();
+  }catch(e){}
+})();
+</script>
+
+
+</body></html>
